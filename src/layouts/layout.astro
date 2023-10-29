@@ -1,7 +1,7 @@
 ---
 import Footer from "src/components/organisms/footer.astro";
 import SeoHeader from "src/features/seo/header.astro";
-import Header from "src/components/organisms/header.astro";
+import Sidebar from "src/components/organisms/sidebar.astro";
 import { getLangFromUrl } from "src/i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
@@ -14,10 +14,12 @@ const lang = getLangFromUrl(Astro.url);
     <SeoHeader />
   </head>
   <body class="bg-white dark:bg-zinc-900">
-    <Header />
-    <article>
-      <slot />
-    </article>
-    <Footer />
+    <Sidebar />
+    <div class="p-4 sm:ml-64">
+      <article>
+        <slot />
+      </article>
+      <Footer />
+    </div>
   </body>
 </html>
