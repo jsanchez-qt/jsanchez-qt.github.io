@@ -6,11 +6,16 @@ const lang = getLangFromUrl(Astro.url);
 const route = useRoute(lang);
 ---
 
-<ul>
+<ul class="flex flew-row space-x-2">
   {
     Object.entries(languages).map(([lang, label]) => (
       <li>
-        <a href={route("/", lang)}>{label}</a>
+        <a
+          class="text-sm text-zinc-800 dark:text-zinc-400"
+          href={route("/", lang)}
+        >
+          {label}
+        </a>
       </li>
     ))
   }
