@@ -1,0 +1,24 @@
+---
+import Footer from "src/components/organisms/footer.astro";
+import SeoHeader from "src/features/seo/header.astro";
+import Header from "src/components/organisms/header.astro";
+import { getLangFromUrl } from "src/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <SeoHeader />
+  </head>
+  <body>
+    <Header />
+    <h1>jsanchez-qt</h1>
+    <article>
+      <slot />
+    </article>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,17 @@
+---
+import { languages } from "src/i18n/translations";
+import { getLangFromUrl, useRoute } from "src/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const route = useRoute(lang);
+---
+
+<ul>
+  {
+    Object.entries(languages).map(([lang, label]) => (
+      <li>
+        <a href={route("/", lang)}>{label}</a>
+      </li>
+    ))
+  }
+</ul>
