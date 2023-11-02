@@ -2,25 +2,14 @@
 import { getLangFromUrl, useTranslations } from "src/i18n/utils";
 import ThemePicker from "src/components/molecules/theme-picker.astro";
 import Logo from "src/components/atoms/logo/logo.astro";
+import Icon from "src/components/atoms/icons/icon.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
 <button id="sidebar-open-button" class="block p-4 sm:hidden">
-  <svg
-    class="w-5 h-5 fill-zinc-900 dark:fill-white"
-    aria-hidden="true"
-    fill="currentColor"
-    viewBox="0 0 20 20"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      clip-rule="evenodd"
-      fill-rule="evenodd"
-      d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
-    ></path>
-  </svg>
+  <Icon name="menu" class="w-5 h-5 text-zinc-900 dark:text-white" />
 </button>
 
 <aside
@@ -39,19 +28,9 @@ const t = useTranslations(lang);
         id="sidebar-close-button"
         class="absolute top-4 right-4 sm:hidden"
       >
-        <svg
-          class="w-4 h-4 fill-zinc-900 dark:fill-white"
-          viewBox="0 0 15 15"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M12.8536 2.85355C13.0488 2.65829 13.0488 2.34171 12.8536 2.14645C12.6583 1.95118 12.3417 1.95118 12.1464 2.14645L7.5 6.79289L2.85355 2.14645C2.65829 1.95118 2.34171 1.95118 2.14645 2.14645C1.95118 2.34171 1.95118 2.65829 2.14645 2.85355L6.79289 7.5L2.14645 12.1464C1.95118 12.3417 1.95118 12.6583 2.14645 12.8536C2.34171 13.0488 2.65829 13.0488 2.85355 12.8536L7.5 8.20711L12.1464 12.8536C12.3417 13.0488 12.6583 13.0488 12.8536 12.8536C13.0488 12.6583 13.0488 12.3417 12.8536 12.1464L8.20711 7.5L12.8536 2.85355Z"
-            fill-rule="evenodd"
-            clip-rule="evenodd"></path>
-        </svg>
+        <Icon name="close" class="w-4 h-4 text-zinc-900 dark:text-white" />
       </button>
-      <Logo class="mt-8 w-14 h-14 justify-center text-primary-500" />
+      <Logo class="w-14 h-14 justify-center text-primary-500" />
     </div>
 
     <nav
