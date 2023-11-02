@@ -1,9 +1,10 @@
 ---
 import { languages } from "src/i18n/translations";
-import { getLangFromUrl, useRoute } from "src/i18n/utils";
+import { getLangFromUrl, getRouteFromUrl, useRouter } from "src/i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
-const route = useRoute(lang);
+const route = getRouteFromUrl(Astro.url);
+const router = useRouter(lang);
 ---
 
 <ul class="flex flew-row space-x-2">
@@ -12,7 +13,7 @@ const route = useRoute(lang);
       <li>
         <a
           class="text-sm text-zinc-800 dark:text-zinc-400"
-          href={route("/", lang)}
+          href={router(`/${route ? route : ""}`, lang)}
         >
           {label}
         </a>

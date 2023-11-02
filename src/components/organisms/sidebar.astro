@@ -1,11 +1,12 @@
 ---
-import { getLangFromUrl, useTranslations } from "src/i18n/utils";
+import { getLangFromUrl, useRouter, useTranslations } from "src/i18n/utils";
 import ThemePicker from "src/components/molecules/theme-picker.astro";
 import Logo from "src/components/atoms/logo/logo.astro";
 import Icon from "src/components/atoms/icons/icon.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const router = useRouter(lang);
 ---
 
 <button id="sidebar-open-button" class="block p-4 sm:hidden">
@@ -36,13 +37,13 @@ const t = useTranslations(lang);
     <nav
       class="flex flex-col space-y-3 font-display p-4 text-zinc-900 dark:text-zinc-100"
     >
-      <a href="#">{t("nav.home")}</a>
-      <a href="#">{t("nav.about")}</a>
-      <a href="#">{t("nav.blog")}</a>
-      <a href="#">{t("nav.projects")}</a>
-      <a href="#">{t("nav.stack")}</a>
-      <a href="#">{t("nav.bookmarks")}</a>
-      <a href="#">{t("nav.contact")}</a>
+      <a href={router("/")}>{t("nav.home")}</a>
+      <a href={router("/about")}>{t("nav.about")}</a>
+      <a href={router("/blog")}>{t("nav.blog")}</a>
+      <a href={router("/projects")}>{t("nav.projects")}</a>
+      <a href={router("/stack")}>{t("nav.stack")}</a>
+      <a href={router("/bookmarks")}>{t("nav.bookmarks")}</a>
+      <a href={router("/contact")}>{t("nav.contact")}</a>
     </nav>
 
     <ThemePicker />

@@ -1,0 +1,15 @@
+---
+import { getLangFromUrl, useTranslations } from "src/i18n/utils";
+import Layout from "src/layouts/layout.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout>
+  <div class="p-2 sm:p-4 md:p-6">
+    <h1 class="text-zinc-900 dark:text-zinc-100">
+      {t("pages.contact.content")}
+    </h1>
+  </div>
+</Layout>
