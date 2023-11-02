@@ -1,14 +1,15 @@
 ---
 import { getLangFromUrl, useTranslations } from "src/i18n/utils";
-import ThemePicker from "../molecules/theme-picker.astro";
+import ThemePicker from "src/components/molecules/theme-picker.astro";
+import Logo from "src/components/atoms/logo/logo.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<button id="sidebar-open-button" class="block sm:hidden">
+<button id="sidebar-open-button" class="block p-4 sm:hidden">
   <svg
-    class="w-6 h-6"
+    class="w-5 h-5 fill-zinc-900 dark:fill-white"
     aria-hidden="true"
     fill="currentColor"
     viewBox="0 0 20 20"
@@ -34,25 +35,28 @@ const t = useTranslations(lang);
     class="flex flex-col place-content-between h-full px-3 py-4 overflow-y-auto"
   >
     <div class="flex flex-row place-content-between">
-      <h1 class="text-primary-500 text-3xl">jsanchez-qt</h1>
-      <button id="sidebar-close-button" class="block sm:hidden">
+      <button
+        id="sidebar-close-button"
+        class="absolute top-4 right-4 sm:hidden"
+      >
         <svg
-          width="15"
-          height="15"
+          class="w-4 h-4 fill-zinc-900 dark:fill-white"
           viewBox="0 0 15 15"
-          fill="none"
+          fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
             d="M12.8536 2.85355C13.0488 2.65829 13.0488 2.34171 12.8536 2.14645C12.6583 1.95118 12.3417 1.95118 12.1464 2.14645L7.5 6.79289L2.85355 2.14645C2.65829 1.95118 2.34171 1.95118 2.14645 2.14645C1.95118 2.34171 1.95118 2.65829 2.14645 2.85355L6.79289 7.5L2.14645 12.1464C1.95118 12.3417 1.95118 12.6583 2.14645 12.8536C2.34171 13.0488 2.65829 13.0488 2.85355 12.8536L7.5 8.20711L12.1464 12.8536C12.3417 13.0488 12.6583 13.0488 12.8536 12.8536C13.0488 12.6583 13.0488 12.3417 12.8536 12.1464L8.20711 7.5L12.8536 2.85355Z"
-            fill="currentColor"
             fill-rule="evenodd"
             clip-rule="evenodd"></path>
         </svg>
       </button>
+      <Logo class="mt-8 w-14 h-14 justify-center text-primary-500" />
     </div>
 
-    <nav class="flex flex-col space-y-2 text-zinc-900 dark:text-zinc-100">
+    <nav
+      class="flex flex-col space-y-3 font-display p-4 text-zinc-900 dark:text-zinc-100"
+    >
       <a href="#">{t("nav.home")}</a>
       <a href="#">{t("nav.about")}</a>
       <a href="#">{t("nav.blog")}</a>
@@ -67,21 +71,21 @@ const t = useTranslations(lang);
 </aside>
 
 <script is:inline>
-const onSidebarOpenClick = () => {
+  const onSidebarOpenClick = () => {
     const element = document.getElementById("sidebar");
     element.setAttribute("data-state", "opened");
-};
+  };
 
-const onSidebarCloselick = () => {
+  const onSidebarCloselick = () => {
     const element = document.getElementById("sidebar");
     element.setAttribute("data-state", "closed");
-};
+  };
 
-document
+  document
     .getElementById("sidebar-open-button")
     .addEventListener("click", onSidebarOpenClick);
 
-document
+  document
     .getElementById("sidebar-close-button")
     .addEventListener("click", onSidebarCloselick);
 </script>
