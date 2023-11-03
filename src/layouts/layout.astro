@@ -7,6 +7,7 @@ import "@fontsource/inter";
 import "@fontsource/space-mono";
 import "src/global.css";
 import type { ROUTES } from "src/constants/routes";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
   routeKey: keyof typeof ROUTES;
@@ -22,6 +23,7 @@ const props = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <SeoHeader />
+    <ViewTransitions />
   </head>
   <body class="bg-white dark:bg-zinc-900">
     <Sidebar routeKey={props.routeKey} />
