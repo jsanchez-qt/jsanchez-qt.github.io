@@ -1,12 +1,12 @@
 ---
-import { getLangFromUrl, useTranslations } from "src/i18n/utils";
+import { getLangFromUrl, useTranslations } from "src/i18n";
 import Layout from "src/layouts/layout.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<Layout>
+<Layout routeKey="blog">
   <div class="p-2 sm:p-4 md:p-6">
     <h1 class="text-zinc-900 dark:text-zinc-100">{t("pages.blog.content")}</h1>
   </div>

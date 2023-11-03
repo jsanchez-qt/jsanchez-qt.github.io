@@ -1,12 +1,71 @@
 ---
-import { getLangFromUrl, useRouter, useTranslations } from "src/i18n/utils";
+import { getLangFromUrl, useRouter, useTranslations } from "src/i18n";
 import ThemePicker from "src/components/molecules/theme-picker.astro";
 import Logo from "src/components/atoms/logo/logo.astro";
-import Icon from "src/components/atoms/icons/icon.astro";
+import Icon, {
+  type Props as IconProps,
+} from "src/components/atoms/icons/icon.astro";
+import { ROUTES } from "src/constants/routes";
+
+interface Props {
+  routeKey: keyof typeof ROUTES;
+}
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const router = useRouter(lang);
+
+const routes: Array<{
+  key: Props["routeKey"];
+  name: string;
+  path: string;
+  icon: IconProps["name"];
+}> = [
+  {
+    key: "home",
+    name: t("nav.home"),
+    path: router("/"),
+    icon: "home",
+  },
+  {
+    key: "about",
+    name: t("nav.about"),
+    path: router("/about"),
+    icon: "about",
+  },
+  {
+    key: "blog",
+    name: t("nav.blog"),
+    path: router("/blog"),
+    icon: "blog",
+  },
+  {
+    key: "projects",
+    name: t("nav.projects"),
+    path: router("/projects"),
+    icon: "projects",
+  },
+  {
+    key: "stack",
+    name: t("nav.stack"),
+    path: router("/stack"),
+    icon: "stack",
+  },
+  {
+    key: "bookmarks",
+    name: t("nav.bookmarks"),
+    path: router("/bookmarks"),
+    icon: "bookmarks",
+  },
+  {
+    key: "contact",
+    name: t("nav.contact"),
+    path: router("/contact"),
+    icon: "contact",
+  },
+];
+
+const props = Astro.props;
 ---
 
 <button id="sidebar-open-button" class="block p-4 sm:hidden">
@@ -17,12 +76,12 @@ const router = useRouter(lang);
   id="sidebar"
   data-state="closed"
   class:list={[
-    "fixed top-0 left-0 z-40 w-full sm:w-64 h-screen bg-white dark:bg-zinc-900 sm:border-r border-r-primary-500",
+    "fixed top-0 left-0 z-40 w-full sm:w-[300px] h-screen bg-white dark:bg-zinc-900 sm:border-r border-r-primary-600/25 dark:border-zinc-100/25",
     "transition-transform -translate-x-full sm:translate-x-0 data-[state=opened]:translate-x-0",
   ]}
 >
   <div
-    class="flex flex-col place-content-between h-full px-3 py-4 overflow-y-auto"
+    class="flex flex-col place-content-between h-full p-8 sm:p-10 md:p-14 overflow-y-auto"
   >
     <div class="flex flex-row place-content-between">
       <button
@@ -31,19 +90,28 @@ const router = useRouter(lang);
       >
         <Icon name="close" class="w-4 h-4 text-zinc-900 dark:text-white" />
       </button>
-      <Logo class="w-14 h-14 justify-center text-primary-500" />
+      <a class="flex flex-1 justify-center" href={router("/")}>
+        <Logo class="aspect-square h-16 sm:h-16 md:h-20 text-primary-500" />
+      </a>
     </div>
 
-    <nav
-      class="flex flex-col space-y-3 font-display p-4 text-zinc-900 dark:text-zinc-100"
-    >
-      <a href={router("/")}>{t("nav.home")}</a>
-      <a href={router("/about")}>{t("nav.about")}</a>
-      <a href={router("/blog")}>{t("nav.blog")}</a>
-      <a href={router("/projects")}>{t("nav.projects")}</a>
-      <a href={router("/stack")}>{t("nav.stack")}</a>
-      <a href={router("/bookmarks")}>{t("nav.bookmarks")}</a>
-      <a href={router("/contact")}>{t("nav.contact")}</a>
+    <nav class="flex flex-col space-y-2">
+      {
+        routes.map((route) => (
+          <a
+            class:list={[
+              "flex flex-row px-4 py-2 gap-x-3 items-center rounded-lg font-display border border-transparent transition-colors",
+              "text-sm text-zinc-400 dark:text-zinc-600 hover:text-primary-600 dark:hover:text-zinc-100",
+              "data-[current]:text-primary-600 dark:data-[current]:text-zinc-100 data-[current]:bg-primary-100 dark:data-[current]:bg-primary-900 data-[current]:border-primary-600/25 dark:data-[current]:border-zinc-100/25",
+            ]}
+            href={route.path}
+            data-current={props.routeKey === route.key}
+          >
+            <Icon name={route.icon} class="w-6 h-6" />
+            {route.name}
+          </a>
+        ))
+      }
     </nav>
 
     <ThemePicker />

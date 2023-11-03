@@ -1,19 +1,28 @@
 ---
 import { languages } from "src/i18n/translations";
-import { getLangFromUrl, getRouteFromUrl, useRouter } from "src/i18n/utils";
+import { getLangFromUrl, getRouteFromUrl, useRouter } from "src/i18n";
+import Icon from "src/components/atoms/icons/icon.astro";
+import type { ValueOf } from "src/types";
+import type { LANGUAGES } from "src/constants/languages";
 
 const lang = getLangFromUrl(Astro.url);
 const route = getRouteFromUrl(Astro.url);
 const router = useRouter(lang);
 ---
 
-<ul class="flex flew-row space-x-2">
+<ul
+  class="flex flew-row space-x-2 items-center text-zinc-800 dark:text-zinc-400"
+>
+  <Icon name="languages" class="w-5 h-5" />
   {
-    Object.entries(languages).map(([lang, label]) => (
+    Object.entries(languages).map(([language, label]) => (
       <li>
         <a
-          class="text-sm text-zinc-800 dark:text-zinc-400"
-          href={router(`/${route ? route : ""}`, lang)}
+          class="text-sm"
+          href={router(
+            `/${route ? route : ""}`,
+            language as ValueOf<typeof LANGUAGES>
+          )}
         >
           {label}
         </a>

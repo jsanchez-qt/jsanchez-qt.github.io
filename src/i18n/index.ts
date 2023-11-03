@@ -1,9 +1,11 @@
+import type { LANGUAGES } from "src/constants/languages";
 import { routes } from "./routes";
 import { translations, defaultLang } from "./translations";
+import type { ValueOf } from "src/types";
 
 export function getLangFromUrl(url: URL) {
   const [, lang] = url.pathname.split("/");
-  if (lang in translations) return lang as keyof typeof translations;
+  if (lang in translations) return lang as ValueOf<typeof LANGUAGES>;
   return defaultLang;
 }
 
@@ -39,21 +41,23 @@ export function getRouteFromUrl(url: URL): string | undefined {
   return undefined;
 }
 
-export function useTranslations(lang: keyof typeof translations) {
+export function useTranslations(lang: ValueOf<typeof LANGUAGES>) {
   return function t(key: keyof (typeof translations)[typeof defaultLang]) {
     return translations[lang][key] || translations[defaultLang][key];
   };
 }
 
-export function useRouter(lang: keyof typeof translations) {
-  return function route(path: string, l: string = lang) {
+export function useRouter(lang: ValueOf<typeof LANGUAGES> = defaultLang) {
+  return function route(path: string, l: ValueOf<typeof LANGUAGES> = lang) {
     const pathName = path.replaceAll("/", "");
 
     const hasTranslation =
       defaultLang !== l &&
       routes[l] !== undefined &&
+      // @ts-ignore
       routes[l][pathName] !== undefined;
 
+    // @ts-ignore
     const translatedPath = hasTranslation ? "/" + routes[l][pathName] : path;
 
     return l === defaultLang ? translatedPath : `/${l}${translatedPath}`;

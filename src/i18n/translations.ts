@@ -1,11 +1,17 @@
-export const languages = {
+import { LANGUAGES } from "src/constants/languages";
+import type { RecordValues, ValueOf } from "src/types";
+
+export const languages: RecordValues<ValueOf<typeof LANGUAGES>, string> = {
   en: "English",
   fr: "Français",
 };
 
-export const defaultLang = "en";
+export const defaultLang: ValueOf<typeof LANGUAGES> = LANGUAGES.en;
 
-export const translations = {
+export const translations: RecordValues<
+  keyof typeof LANGUAGES,
+  Record<string, string>
+> = {
   en: {
     "pages.home.content": "Home page content",
     "pages.about.content": "About page content",

@@ -1,6 +1,4 @@
 ---
-import { cn } from "src/utils/class-names.ts";
-
 interface Props {
   class?: string;
 }
@@ -10,6 +8,6 @@ const props = Astro.props;
 const { default: innerHTML } = await import("./logo.svg?raw");
 ---
 
-<div class={cn("flex flex-1", props.class)}>
+<div class={props.class}>
   <Fragment set:html={innerHTML} />
 </div>

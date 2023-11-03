@@ -1,11 +1,14 @@
-type Routes = {
-  [key: string]: {
-    [key: string]: string;
-  };
+import type { ROUTES } from "src/constants/routes";
+import type { RecordValues, ValueOf } from "src/types";
+
+type LanguagesRouteNames = {
+  en: RecordValues<ValueOf<typeof ROUTES>, string>;
+  fr: RecordValues<ValueOf<typeof ROUTES>, string>;
 };
 
-export const routes: Routes = {
+export const routes: LanguagesRouteNames = {
   en: {
+    home: "home",
     about: "about",
     blog: "blog",
     projects: "projects",
@@ -14,6 +17,7 @@ export const routes: Routes = {
     contact: "contact",
   },
   fr: {
+    home: "home",
     about: "a-propos",
     blog: "blog",
     projects: "projets",
