@@ -25,7 +25,12 @@ const props = Astro.props;
     <SeoHeader />
     <ViewTransitions />
   </head>
-  <body class="bg-white dark:bg-zinc-900">
+  <body
+    class:list={[
+      "h-screen w-screen bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))]",
+      "from-white via-primary-50 to-white dark:from-zinc-950 dark:via-primary-950 dark:to-zinc-950",
+    ]}
+  >
     <Sidebar routeKey={props.routeKey} />
     <div class="p-4 sm:ml-[300px]">
       <article>
