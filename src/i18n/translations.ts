@@ -13,7 +13,9 @@ export const translations: RecordValues<
   Record<string, string>
 > = {
   en: {
-    "pages.home.content": "Home page content",
+    "pages.home.title": "Julien Sanchez-Porro,\n Mobile Developer",
+    "pages.home.subtitle":
+      "I am more than a mobile developer\n I am a passionate craftsman\n Shaping each application with dedication and love for this ever-evolving universe",
     "pages.about.content": "About page content",
     "pages.blog.content": "Blog page content",
     "pages.projects.content": "Projects page content",
@@ -29,7 +31,9 @@ export const translations: RecordValues<
     "nav.contact": "Contact",
   },
   fr: {
-    "pages.home.content": "Contenu de la page",
+    "pages.home.title": "Julien Sanchez-Porro,\n Développeur Mobile",
+    "pages.home.subtitle":
+      "Je suis plus qu'un développeur mobile\n Je suis un artisan passionné\n Façonnant chaque application avec dévouement et amour pour cet univers en constante évolution",
     "pages.about.content": "Contenu de la page À propos",
     "pages.blog.content": "Contenu de la page Blog",
     "pages.projects.content": "Contenu de la page Projets",

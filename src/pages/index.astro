@@ -1,13 +1,42 @@
 ---
-import { getLangFromUrl, useTranslations } from "src/i18n";
+import { getLangFromUrl, useRouter, useTranslations } from "src/i18n";
 import Layout from "src/layouts/layout.astro";
+import ButtonLink from "src/components/atoms/button-link.astro";
+import Icon from "src/components/atoms/icons/icon.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const router = useRouter(lang);
 ---
 
 <Layout routeKey="home">
   <div class="p-2 sm:p-4 md:p-6">
-    <h1 class="text-zinc-900 dark:text-zinc-100">{t("pages.home.content")}</h1>
+    <div class="space-y-4 md:space-y-6">
+      <h1
+        class="font-display text-3xl text-zinc-900 dark:text-zinc-100 whitespace-pre-line"
+      >
+        {t("pages.home.title")}
+      </h1>
+      <p
+        class="font-sans text-sm text-zinc-700 dark:text-zinc-300 whitespace-pre-line"
+      >
+        {t("pages.home.subtitle")}
+      </p>
+      <div class="flex flex-row items-center space-x-4">
+        <svg class="h-1 w-full text-primary-500">
+          <line
+            x1="0"
+            y1="0"
+            x2="100%"
+            y2="0"
+            stroke="currentColor"
+            stroke-dasharray="4 4"></line>
+        </svg>
+        <ButtonLink href={router("/about")}>
+          {t("nav.about")}
+          <Icon name="enter" class="w-4 h-4" />
+        </ButtonLink>
+      </div>
+    </div>
   </div>
 </Layout>
