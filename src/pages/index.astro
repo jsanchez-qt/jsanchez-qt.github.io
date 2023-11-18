@@ -16,6 +16,14 @@ const blogPosts = await getCollection("blog", ({ id }) => {
 const recentBlogPosts = blogPosts
   .sort((a, b) => b.data.releaseDate.getTime() - a.data.releaseDate.getTime())
   .slice(0, 3);
+
+const projects = await getCollection("projects", ({ id }) => {
+  return id.startsWith(`${lang}/`);
+});
+
+const recentProjects = projects
+  .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
+  .slice(0, 2);
 ---
 
 <Layout routeKey="home">
@@ -76,6 +84,37 @@ const recentBlogPosts = blogPosts
       href={router("/blog")}
       label={t("pages.home.blogRedirect")}
       icon="blog"
+    />
+
+    {/* Recent projects */}
+    <div class="space-y-2">
+      <h3
+        class="font-display font-semibold text-lg text-zinc-900 dark:text-zinc-100"
+      >
+        {t("pages.home.myRecentProjects")}
+      </h3>
+      <ul class="grid-cols-1 lg:grid-cols-2 grid gap-4">
+        {
+          recentProjects.map((project) => (
+            <li class="w-full h-[200px] lg:h-[250px] shadow-sm rounded-lg overflow-hidden transition-opacity hover:opacity-80">
+              <a href={router(`/projects/${project.slug}`)}>
+                <Image
+                  class="object-cover object-center w-full h-full"
+                  width={800}
+                  height={800}
+                  src={project.data.image.url}
+                  alt={project.data.image.alt}
+                />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <SeparatorLink
+      href={router("/projects")}
+      label={t("pages.home.projectsRedirect")}
+      icon="projects"
     />
   </div>
 </Layout>

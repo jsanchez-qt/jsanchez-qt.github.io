@@ -20,7 +20,7 @@ export const routes: LanguagesRouteNames = {
     home: "home",
     about: "a-propos",
     blog: "blog",
-    projects: "projets",
+    projects: "projects",
     stack: "stack",
     bookmarks: "signets",
     contact: "contact",
