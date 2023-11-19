@@ -1,0 +1,11 @@
+{
+  "sortOrder": 6,
+  "name": "React Hook Form",
+  "caption": "Form validation",
+  "description": "...",
+  "url": "https://react-hook-form.com/",
+  "icon": {
+    "url": "https://picsum.photos/100?random=206",
+    "alt": "..."
+  }
+}

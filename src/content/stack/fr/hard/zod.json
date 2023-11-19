@@ -1,0 +1,11 @@
+{
+  "sortOrder": 3,
+  "name": "Zod",
+  "caption": "Schema validation",
+  "description": "...",
+  "url": "https://zod.dev/",
+  "icon": {
+    "url": "https://picsum.photos/100?random=203",
+    "alt": "..."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "sortOrder": 1,
+  "name": "Expo",
+  "caption": "Framework Android, iOS and Web",
+  "description": "...",
+  "url": "https://docs.expo.dev/",
+  "icon": {
+    "url": "https://picsum.photos/100?random=201",
+    "alt": "..."
+  }
+}

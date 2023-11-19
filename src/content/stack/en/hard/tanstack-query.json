@@ -1,0 +1,11 @@
+{
+  "sortOrder": 4,
+  "name": "TanStack Query",
+  "caption": "Async state management",
+  "description": "...",
+  "url": "https://tanstack.com/query/latest",
+  "icon": {
+    "url": "https://picsum.photos/100?random=204",
+    "alt": "..."
+  }
+}

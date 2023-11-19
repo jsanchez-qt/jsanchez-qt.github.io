@@ -1,0 +1,11 @@
+{
+  "sortOrder": 5,
+  "name": "Vitest",
+  "caption": "Testing framework",
+  "description": "...",
+  "url": "https://vitest.dev/",
+  "icon": {
+    "url": "https://picsum.photos/100?random=205",
+    "alt": "..."
+  }
+}
