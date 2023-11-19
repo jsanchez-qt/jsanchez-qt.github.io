@@ -1,0 +1,11 @@
+{
+  "sortOrder": 1,
+  "name": "Cursor",
+  "caption": "Code editor",
+  "description": "...",
+  "url": "https://cursor.sh/",
+  "icon": {
+    "url": "https://picsum.photos/100?random=101",
+    "alt": "..."
+  }
+}

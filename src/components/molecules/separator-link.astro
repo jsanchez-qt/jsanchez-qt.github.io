@@ -21,8 +21,11 @@ const props = Astro.props;
       stroke="currentColor"
       stroke-dasharray="4 4"></line>
   </svg>
-  <ButtonLink href={props.href}>
+  <ButtonLink class="group" href={props.href}>
     {props.label}
-    <Icon name={props.icon} class="w-4 h-4" />
+    <Icon
+      class="w-4 h-4 transition-transform transform duration-300 group-hover:scale-125"
+      name={props.icon}
+    />
   </ButtonLink>
 </div>

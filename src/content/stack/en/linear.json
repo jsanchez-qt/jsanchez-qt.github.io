@@ -1,0 +1,11 @@
+{
+  "sortOrder": 4,
+  "name": "Linear",
+  "caption": "Project management",
+  "description": "...",
+  "url": "https://linear.app/",
+  "icon": {
+    "url": "https://picsum.photos/100?random=104",
+    "alt": "..."
+  }
+}

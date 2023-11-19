@@ -102,14 +102,17 @@ const props = Astro.props;
         routes.map((route) => (
           <a
             class:list={[
-              "flex flex-row px-4 py-2 gap-x-3 items-center rounded-lg font-display border border-transparent transition-colors",
+              "group flex flex-row px-4 py-2 gap-x-3 items-center rounded-lg font-display transition-colors",
               "text-sm text-zinc-400 dark:text-zinc-400 hover:text-primary-600 dark:hover:text-zinc-100",
-              "data-[current]:text-primary-600 dark:data-[current]:text-zinc-100 data-[current]:bg-primary-50 dark:data-[current]:bg-primary-950 data-[current]:border-primary-600/25 dark:data-[current]:border-zinc-100/25",
+              "data-[current]:text-primary-600 dark:data-[current]:text-zinc-100 data-[current]:bg-primary-100 dark:data-[current]:bg-primary-900 data-[current]:shadow-md",
             ]}
             href={route.path}
             data-current={props.routeKey === route.key}
           >
-            <Icon name={route.icon} class="w-6 h-6" />
+            <Icon
+              name={route.icon}
+              class="w-6 h-6 transition-transform transform duration-300 group-hover:scale-125"
+            />
             {route.name}
           </a>
         ))

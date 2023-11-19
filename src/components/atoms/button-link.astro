@@ -10,9 +10,8 @@ const props = Astro.props;
 
 <a
   class={cn([
-    "w-fit whitespace-nowrap flex flex-row items-center px-4 py-2 gap-x-2 rounded-lg border transition-colors",
-    "font-sans text-sm text-primary-600 dark:text-zinc-100 bg-primary-50 dark:bg-primary-950 border-primary-600/25 dark:border-zinc-100/25",
-    "hover:text-primary-700 dark:hover:text-zinc-200 hover:border-primary-700 dark:hover:border-zinc-200",
+    "w-fit whitespace-nowrap flex flex-row items-center px-4 py-2 gap-x-2 rounded-lg transition-all shadow-sm hover:shadow-md ",
+    "font-sans text-sm text-primary-600 dark:text-zinc-100 bg-primary-100 dark:bg-primary-900",
     props.class,
   ])}
   href={props.href}

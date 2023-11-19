@@ -1,0 +1,11 @@
+{
+  "sortOrder": 2,
+  "name": "Obsidian",
+  "caption": "Note taking",
+  "description": "...",
+  "url": "https://obsidian.md/",
+  "icon": {
+    "url": "https://picsum.photos/100?random=102",
+    "alt": "..."
+  }
+}

@@ -24,6 +24,13 @@ const projects = await getCollection("projects", ({ id }) => {
 const recentProjects = projects
   .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
   .slice(0, 2);
+
+const stack = await getCollection("stack", ({ id }) => {
+  return id.startsWith(`${lang}/`);
+});
+const stackItems = stack
+  .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
+  .slice(0, 6);
 ---
 
 <Layout routeKey="home">
@@ -47,74 +54,139 @@ const recentProjects = projects
       />
     </div>
 
-    {/* Recent blog posts */}
-    <div class="space-y-2">
-      <h3
-        class="font-display font-semibold text-lg text-zinc-900 dark:text-zinc-100"
-      >
-        {t("pages.home.myRecentPosts")}
-      </h3>
-      <ul class="grid-cols-1 lg:grid-cols-3 grid gap-4">
-        {
-          recentBlogPosts.map((post) => (
-            <li class="w-full h-[200px] lg:h-[300px] relative bg-transparent shadow-sm rounded-lg overflow-hidden transition-opacity hover:opacity-80">
-              <a href={router(`/blog/${post.slug}`)}>
-                <Image
-                  class="object-cover object-center w-full h-full"
-                  width={800}
-                  height={800}
-                  src={post.data.image.url}
-                  alt={post.data.image.alt}
-                />
-                <div class="absolute w-full bg-black/25 bottom-0 px-4 py-2 space-y-2">
-                  <h2 class="font-display font-semibold text-base text-white line-clamp-1">
-                    {post.data.title}
-                  </h2>
-                  <p class="text-sm text-zinc-200 line-clamp-2">
-                    {post.data.subtitle}
-                  </p>
-                </div>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
+    {/* Recent Blog Posts */}
+    <div class="space-y-4 md:space-y-6">
+      <div class="space-y-2 md:space-y-3">
+        <h3
+          class="font-display font-semibold text-xl text-zinc-900 dark:text-zinc-100"
+        >
+          {t("pages.home.myRecentPosts")}
+        </h3>
+        <ul class="grid-cols-1 lg:grid-cols-3 grid gap-4">
+          {
+            recentBlogPosts.map((post) => (
+              <li
+                class:list={[
+                  "w-full h-[200px] lg:h-[300px] relative bg-transparent rounded-lg overflow-hidden ",
+                  "shadow-md hover:shadow-xl transition-all transform duration-500 hover:scale-105",
+                ]}
+              >
+                <a href={router(`/blog/${post.slug}`)}>
+                  <Image
+                    class="object-cover object-center w-full h-full"
+                    width={800}
+                    height={800}
+                    src={post.data.image.url}
+                    alt={post.data.image.alt}
+                  />
+                  <div class="absolute w-full bg-black/50 bottom-0 px-4 py-2 space-y-2">
+                    <h2 class="font-display font-semibold text-base text-white line-clamp-1">
+                      {post.data.title}
+                    </h2>
+                    <p class="text-sm text-zinc-200 line-clamp-2">
+                      {post.data.subtitle}
+                    </p>
+                  </div>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <SeparatorLink
+        href={router("/blog")}
+        label={t("pages.home.blogRedirect")}
+        icon="blog"
+      />
     </div>
-    <SeparatorLink
-      href={router("/blog")}
-      label={t("pages.home.blogRedirect")}
-      icon="blog"
-    />
 
-    {/* Recent projects */}
-    <div class="space-y-2">
-      <h3
-        class="font-display font-semibold text-lg text-zinc-900 dark:text-zinc-100"
-      >
-        {t("pages.home.myRecentProjects")}
-      </h3>
-      <ul class="grid-cols-1 lg:grid-cols-2 grid gap-4">
-        {
-          recentProjects.map((project) => (
-            <li class="w-full h-[200px] lg:h-[250px] shadow-sm rounded-lg overflow-hidden transition-opacity hover:opacity-80">
-              <a href={router(`/projects/${project.slug}`)}>
-                <Image
-                  class="object-cover object-center w-full h-full"
-                  width={800}
-                  height={800}
-                  src={project.data.image.url}
-                  alt={project.data.image.alt}
-                />
-              </a>
-            </li>
-          ))
-        }
-      </ul>
+    {/* Recent Projects */}
+    <div class="space-y-4 md:space-y-6">
+      <div class="space-y-2 md:space-y-3">
+        <h3
+          class="font-display font-semibold text-xl text-zinc-900 dark:text-zinc-100"
+        >
+          {t("pages.home.myRecentProjects")}
+        </h3>
+        <ul class="grid-cols-1 lg:grid-cols-2 grid gap-4">
+          {
+            recentProjects.map((project) => (
+              <li
+                class:list={[
+                  "w-full h-[200px] lg:h-[250px] rounded-lg overflow-hidden",
+                  "shadow-md hover:shadow-xl transition-all transform duration-500 hover:scale-105",
+                ]}
+              >
+                <a href={router(`/projects/${project.slug}`)}>
+                  <Image
+                    class="object-cover object-center w-full h-full"
+                    width={800}
+                    height={800}
+                    src={project.data.image.url}
+                    alt={project.data.image.alt}
+                  />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <SeparatorLink
+        href={router("/projects")}
+        label={t("pages.home.projectsRedirect")}
+        icon="projects"
+      />
     </div>
-    <SeparatorLink
-      href={router("/projects")}
-      label={t("pages.home.projectsRedirect")}
-      icon="projects"
-    />
+
+    {/* Recent Stack */}
+    <div class="space-y-4 md:space-y-6">
+      <div class="space-y-2 md:space-y-3">
+        <h3
+          class="font-display font-semibold text-xl text-zinc-900 dark:text-zinc-100"
+        >
+          {t("pages.home.myStack")}
+        </h3>
+        <ul class="grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid gap-4">
+          {
+            stackItems.map((stackItem) => (
+              <li
+                class:list={[
+                  "group w-full h-20 transition-all shadow-sm hover:shadow-md rounded-lg overflow-hidden",
+                  "text-primary-600 dark:text-zinc-100 bg-primary-50 dark:bg-primary-950",
+                ]}
+              >
+                <a
+                  class="flex flex-row items-center space-x-4"
+                  href={stackItem.data.url}
+                >
+                  <div class="w-20 h-20 flex justify-center items-center">
+                    <Image
+                      class="object-cover object-center transition-transform transform duration-500 group-hover:scale-125"
+                      width={50}
+                      height={50}
+                      src={stackItem.data.icon.url}
+                      alt={stackItem.data.icon.alt}
+                    />
+                  </div>
+                  <div class="space-y-0.5">
+                    <h2 class="font-display font-semibold text-base text-zinc-900 dark:text-zinc-100 line-clamp-1">
+                      {stackItem.data.name}
+                    </h2>
+                    <p class="text-sm text-zinc-700 dark:text-zinc-300 line-clamp-2">
+                      {stackItem.data.caption}
+                    </p>
+                  </div>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <SeparatorLink
+        href={router("/stack")}
+        label={t("pages.home.stackRedirect")}
+        icon="stack"
+      />
+    </div>
   </div>
 </Layout>

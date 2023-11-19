@@ -1,0 +1,11 @@
+{
+  "sortOrder": 5,
+  "name": "Balance",
+  "caption": "Suivi du temps",
+  "description": "...",
+  "url": "https://alexandersandberg.com/apps/balance/",
+  "icon": {
+    "url": "https://picsum.photos/100?random=104",
+    "alt": "..."
+  }
+}

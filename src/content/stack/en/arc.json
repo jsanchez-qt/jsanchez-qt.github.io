@@ -1,0 +1,11 @@
+{
+  "sortOrder": 5,
+  "name": "Arc",
+  "caption": "Web browser",
+  "description": "...",
+  "url": "https://arc.net/",
+  "icon": {
+    "url": "https://picsum.photos/100?random=105",
+    "alt": "..."
+  }
+}
