@@ -4,6 +4,7 @@ import Layout from "src/layouts/layout.astro";
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import SeparatorLink from "src/components/molecules/separator-link.astro";
+import Icon from "src/components/atoms/icons/icon.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -12,7 +13,6 @@ const router = useRouter(lang);
 const blogPosts = await getCollection("blog", ({ id }) => {
   return id.startsWith(`${lang}/`);
 });
-
 const recentBlogPosts = blogPosts
   .sort((a, b) => b.data.releaseDate.getTime() - a.data.releaseDate.getTime())
   .slice(0, 3);
@@ -20,7 +20,6 @@ const recentBlogPosts = blogPosts
 const projects = await getCollection("projects", ({ id }) => {
   return id.startsWith(`${lang}/`);
 });
-
 const recentProjects = projects
   .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
   .slice(0, 2);
@@ -38,6 +37,13 @@ const softStack = await getCollection("stack", ({ id }) => {
 const softStackItems = softStack
   .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
   .slice(0, 6);
+
+const bookmarks = await getCollection("bookmarks", ({ id }) => {
+  return id.startsWith(`${lang}/`);
+});
+const topBookmarks = bookmarks
+  .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
+  .slice(0, 5);
 ---
 
 <Layout routeKey="home">
@@ -242,6 +248,52 @@ const softStackItems = softStack
         href={router("/stack")}
         label={t("pages.home.stackRedirect")}
         icon="stack"
+      />
+    </div>
+
+    {/* My Bookmarks */}
+    <div class="space-y-4 md:space-y-6">
+      <div class="space-y-2 md:space-y-3">
+        <h3
+          class="font-display font-semibold text-xl text-zinc-900 dark:text-zinc-100"
+        >
+          {t("pages.home.myBookmarks")}
+        </h3>
+        <ul class="space-y-4">
+          {
+            topBookmarks.map((bookmark) => (
+              <li
+                class:list={[
+                  "group w-full h-fit rounded-lg overflow-hidden bg-primary-50 dark:bg-primary-950",
+                  "transition-all shadow-md hover:shadow-xl",
+                ]}
+              >
+                <a
+                  class="flex flex-row space-x-4 px-4 py-2 items-center"
+                  href={bookmark.data.url}
+                >
+                  <Icon
+                    class="w-6 h-6 text-primary-600 dark:text-zinc-100 transition-transform transform duration-300 group-hover:scale-125"
+                    name="bookmarks"
+                  />
+                  <div class="space-y-0.5">
+                    <h2 class="font-display font-semibold text-sm text-zinc-900 dark:text-zinc-100 line-clamp-1">
+                      {bookmark.data.name}
+                    </h2>
+                    <p class="text-sm text-zinc-700 dark:text-zinc-300 line-clamp-2">
+                      {bookmark.data.caption}
+                    </p>
+                  </div>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <SeparatorLink
+        href={router("/bookmarks")}
+        label={t("pages.home.bookmarksRedirect")}
+        icon="bookmarks"
       />
     </div>
   </div>
