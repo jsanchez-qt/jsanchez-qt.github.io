@@ -42,4 +42,13 @@ const bookmarks = defineCollection({
   }),
 });
 
-export const collections = { blog, projects, stack, bookmarks };
+const contacts = defineCollection({
+  type: "data",
+  schema: z.object({
+    sortOrder: z.number(),
+    name: z.string(),
+    url: z.string().url(),
+  }),
+});
+
+export const collections = { blog, projects, stack, bookmarks, contacts };

@@ -10,23 +10,9 @@ const route = getRouteFromUrl(Astro.url);
 const router = useRouter(lang);
 ---
 
-<ul
-  class="flex flew-row space-x-2 items-center text-zinc-800 dark:text-zinc-200"
+<a
+  class="font-display text-base text-zinc-800 dark:text-zinc-200"
+  href={router(`/${route ? route : ""}`, lang === "en" ? "fr" : "en")}
 >
-  <Icon name="languages" class="w-5 h-5" />
-  {
-    Object.entries(languages).map(([language, label]) => (
-      <li>
-        <a
-          class="text-sm"
-          href={router(
-            `/${route ? route : ""}`,
-            language as ValueOf<typeof LANGUAGES>
-          )}
-        >
-          {label}
-        </a>
-      </li>
-    ))
-  }
-</ul>
+  {lang === "en" ? "FR" : "EN"}
+</a>
