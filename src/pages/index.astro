@@ -2,29 +2,15 @@
 import { getLangFromUrl, useRouter, useTranslations } from "src/i18n";
 import Layout from "src/layouts/layout.astro";
 import { getCollection } from "astro:content";
-import { Image } from "astro:assets";
 import SeparatorLink from "src/components/molecules/separator-link.astro";
 import Icon from "src/components/atoms/icons/icon.astro";
 import RecentBlogPostList from "src/features/blog/components/recent-blog-post-list.astro";
 import RecentProjectList from "src/features/projects/components/recent-project-list.astro";
+import TopStackList from "src/features/stack/components/top-stack-list.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const router = useRouter(lang);
-
-const hardStack = await getCollection("stack", ({ id }) => {
-  return id.startsWith(`${lang}/hard`);
-});
-const hardStackItems = hardStack
-  .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
-  .slice(0, 6);
-
-const softStack = await getCollection("stack", ({ id }) => {
-  return id.startsWith(`${lang}/soft`);
-});
-const softStackItems = softStack
-  .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
-  .slice(0, 6);
 
 const bookmarks = await getCollection("bookmarks", ({ id }) => {
   return id.startsWith(`${lang}/`);
@@ -61,106 +47,7 @@ const sortedContacts = contacts.sort(
 
     <RecentBlogPostList />
     <RecentProjectList />
-
-    {/* My Stack */}
-    <div class="space-y-4 md:space-y-6">
-      <div class="space-y-2 md:space-y-3">
-        <h3
-          class="font-display font-semibold text-xl text-zinc-900 dark:text-zinc-100"
-        >
-          {t("pages.home.myStack")}
-        </h3>
-        <div class="space-y-1 md:space-y-2">
-          <h4
-            class="font-display font-semibold text-lg text-zinc-900 dark:text-zinc-100"
-          >
-            {t("pages.home.hardStack")}
-          </h4>
-          <ul class="grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid gap-4">
-            {
-              hardStackItems.map((stackItem) => (
-                <li
-                  class:list={[
-                    "group w-full h-20 transition-all shadow-sm hover:shadow-md rounded-lg overflow-hidden",
-                    "text-primary-600 dark:text-zinc-100 bg-primary-50 dark:bg-primary-950",
-                  ]}
-                >
-                  <a
-                    class="flex flex-row items-center space-x-4"
-                    href={stackItem.data.url}
-                  >
-                    <div class="w-20 h-20 flex justify-center items-center">
-                      <Image
-                        class="object-cover object-center transition-transform transform duration-500 group-hover:scale-125"
-                        width={50}
-                        height={50}
-                        src={stackItem.data.icon.url}
-                        alt={stackItem.data.icon.alt}
-                      />
-                    </div>
-                    <div class="space-y-0.5">
-                      <h2 class="font-display font-semibold text-base text-zinc-900 dark:text-zinc-100 line-clamp-1">
-                        {stackItem.data.name}
-                      </h2>
-                      <p class="text-sm text-zinc-700 dark:text-zinc-300 line-clamp-2">
-                        {stackItem.data.caption}
-                      </p>
-                    </div>
-                  </a>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-        <div class="space-y-1 md:space-y-2">
-          <h4
-            class="font-display font-semibold text-lg text-zinc-900 dark:text-zinc-100"
-          >
-            {t("pages.home.softStack")}
-          </h4>
-          <ul class="grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid gap-4">
-            {
-              softStackItems.map((stackItem) => (
-                <li
-                  class:list={[
-                    "group w-full h-20 transition-all shadow-sm hover:shadow-md rounded-lg overflow-hidden",
-                    "text-primary-600 dark:text-zinc-100 bg-primary-50 dark:bg-primary-950",
-                  ]}
-                >
-                  <a
-                    class="flex flex-row items-center space-x-4"
-                    href={stackItem.data.url}
-                  >
-                    <div class="w-20 h-20 flex justify-center items-center">
-                      <Image
-                        class="object-cover object-center transition-transform transform duration-500 group-hover:scale-125"
-                        width={50}
-                        height={50}
-                        src={stackItem.data.icon.url}
-                        alt={stackItem.data.icon.alt}
-                      />
-                    </div>
-                    <div class="space-y-0.5">
-                      <h2 class="font-display font-semibold text-base text-zinc-900 dark:text-zinc-100 line-clamp-1">
-                        {stackItem.data.name}
-                      </h2>
-                      <p class="text-sm text-zinc-700 dark:text-zinc-300 line-clamp-2">
-                        {stackItem.data.caption}
-                      </p>
-                    </div>
-                  </a>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-      </div>
-      <SeparatorLink
-        href={router("/stack")}
-        label={t("pages.home.stackRedirect")}
-        icon="stack"
-      />
-    </div>
+    <TopStackList />
 
     {/* My Bookmarks */}
     <div class="space-y-4 md:space-y-6">

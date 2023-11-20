@@ -1,0 +1,42 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+
+interface Props {
+  stackItem: CollectionEntry<"stack">;
+}
+
+const props = Astro.props;
+---
+
+<li
+  class:list={[
+    "group w-full h-20 transition-all shadow-sm hover:shadow-md rounded-lg overflow-hidden",
+    "text-primary-600 dark:text-zinc-100 bg-primary-50 dark:bg-primary-950",
+  ]}
+>
+  <a
+    class="flex flex-row items-center space-x-4"
+    href={props.stackItem.data.url}
+  >
+    <div class="w-20 h-20 flex justify-center items-center">
+      <Image
+        class="object-cover object-center transition-transform transform duration-500 group-hover:scale-125"
+        width={50}
+        height={50}
+        src={props.stackItem.data.icon.url}
+        alt={props.stackItem.data.icon.alt}
+      />
+    </div>
+    <div class="space-y-0.5">
+      <h2
+        class="font-display font-semibold text-base text-zinc-900 dark:text-zinc-100 line-clamp-1"
+      >
+        {props.stackItem.data.name}
+      </h2>
+      <p class="text-sm text-zinc-700 dark:text-zinc-300 line-clamp-2">
+        {props.stackItem.data.caption}
+      </p>
+    </div>
+  </a>
+</li>

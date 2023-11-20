@@ -18,10 +18,6 @@ export const translations: RecordValues<
     "pages.home.subtitle":
       "I am more than a mobile developer\n I am a passionate craftsman\n Shaping each application with dedication and love for this ever-evolving universe",
     "pages.home.aboutRedirect": "Learn more",
-    "pages.home.myStack": "Stack",
-    "pages.home.softStack": "Soft",
-    "pages.home.hardStack": "Hard",
-    "pages.home.stackRedirect": "My complete Stack",
     "pages.home.myBookmarks": "My bookmarks",
     "pages.home.bookmarksRedirect": "More bookmarks",
     "pages.home.contactRedirect": "Let's get in touch!",
@@ -60,6 +56,12 @@ export const translations: RecordValues<
     // Feature Projects
     "features.projects.myRecentProjects": "My recent projects",
     "features.projects.redirect": "More projects",
+
+    // Feature Stack
+    "features.stack.myStack": "Stack",
+    "features.stack.softStack": "Soft",
+    "features.stack.hardStack": "Hard",
+    "features.stack.redirect": "My complete Stack",
   },
   fr: {
     // Home Page
@@ -67,10 +69,6 @@ export const translations: RecordValues<
     "pages.home.subtitle":
       "Je suis plus qu'un développeur mobile\n Je suis un artisan passionné\n Façonnant chaque application avec dévouement et amour pour cet univers en constante évolution",
     "pages.home.aboutRedirect": "En savoir plus",
-    "pages.home.myStack": "Stack",
-    "pages.home.softStack": "Soft",
-    "pages.home.hardStack": "Hard",
-    "pages.home.stackRedirect": "Ma Stack complète",
     "pages.home.myBookmarks": "Mes signets",
     "pages.home.bookmarksRedirect": "Plus de signets",
     "pages.home.contactRedirect": "Rentrons en contact !",
@@ -109,5 +107,11 @@ export const translations: RecordValues<
     // Feature Projects
     "features.projects.myRecentProjects": "Mes projets récents",
     "features.projects.redirect": "Plus de projets",
+
+    // Feature Stack
+    "features.stack.myStack": "Stack",
+    "features.stack.softStack": "Soft",
+    "features.stack.hardStack": "Hard",
+    "features.stack.redirect": "Ma Stack complète",
   },
 } as const;
