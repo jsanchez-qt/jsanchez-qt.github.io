@@ -1,0 +1,39 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import { getLangFromUrl, useRouter } from "src/i18n";
+
+interface Props {
+  blogPost: CollectionEntry<"blog">;
+}
+
+const lang = getLangFromUrl(Astro.url);
+const router = useRouter(lang);
+
+const props = Astro.props;
+---
+
+<li
+  class:list={[
+    "w-full h-[200px] lg:h-[300px] relative bg-transparent rounded-lg overflow-hidden ",
+    "shadow-md hover:shadow-xl transition-all transform duration-500 hover:scale-105",
+  ]}
+>
+  <a href={router(`/blog/${props.blogPost.slug}`)}>
+    <Image
+      class="object-cover object-center w-full h-full"
+      width={800}
+      height={800}
+      src={props.blogPost.data.image.url}
+      alt={props.blogPost.data.image.alt}
+    />
+    <div class="absolute w-full bg-black/50 bottom-0 px-4 py-2 space-y-2">
+      <h2 class="font-display font-semibold text-base text-white line-clamp-1">
+        {props.blogPost.data.title}
+      </h2>
+      <p class="text-sm text-zinc-200 line-clamp-2">
+        {props.blogPost.data.subtitle}
+      </p>
+    </div>
+  </a>
+</li>

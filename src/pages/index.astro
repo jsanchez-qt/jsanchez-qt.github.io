@@ -5,17 +5,11 @@ import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import SeparatorLink from "src/components/molecules/separator-link.astro";
 import Icon from "src/components/atoms/icons/icon.astro";
+import RecentBlogPostList from "src/features/blog/components/recent-blog-post-list.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const router = useRouter(lang);
-
-const blogPosts = await getCollection("blog", ({ id }) => {
-  return id.startsWith(`${lang}/`);
-});
-const recentBlogPosts = blogPosts
-  .sort((a, b) => b.data.releaseDate.getTime() - a.data.releaseDate.getTime())
-  .slice(0, 3);
 
 const projects = await getCollection("projects", ({ id }) => {
   return id.startsWith(`${lang}/`);
@@ -72,51 +66,7 @@ const sortedContacts = contacts.sort(
       />
     </div>
 
-    {/* Recent Blog Posts */}
-    <div class="space-y-4 md:space-y-6">
-      <div class="space-y-2 md:space-y-3">
-        <h3
-          class="font-display font-semibold text-xl text-zinc-900 dark:text-zinc-100"
-        >
-          {t("pages.home.myRecentPosts")}
-        </h3>
-        <ul class="grid-cols-1 lg:grid-cols-3 grid gap-4">
-          {
-            recentBlogPosts.map((post) => (
-              <li
-                class:list={[
-                  "w-full h-[200px] lg:h-[300px] relative bg-transparent rounded-lg overflow-hidden ",
-                  "shadow-md hover:shadow-xl transition-all transform duration-500 hover:scale-105",
-                ]}
-              >
-                <a href={router(`/blog/${post.slug}`)}>
-                  <Image
-                    class="object-cover object-center w-full h-full"
-                    width={800}
-                    height={800}
-                    src={post.data.image.url}
-                    alt={post.data.image.alt}
-                  />
-                  <div class="absolute w-full bg-black/50 bottom-0 px-4 py-2 space-y-2">
-                    <h2 class="font-display font-semibold text-base text-white line-clamp-1">
-                      {post.data.title}
-                    </h2>
-                    <p class="text-sm text-zinc-200 line-clamp-2">
-                      {post.data.subtitle}
-                    </p>
-                  </div>
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-      <SeparatorLink
-        href={router("/blog")}
-        label={t("pages.home.blogRedirect")}
-        icon="blog"
-      />
-    </div>
+    <RecentBlogPostList />
 
     {/* Recent Projects */}
     <div class="space-y-4 md:space-y-6">

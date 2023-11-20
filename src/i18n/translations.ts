@@ -18,8 +18,6 @@ export const translations: RecordValues<
     "pages.home.subtitle":
       "I am more than a mobile developer\n I am a passionate craftsman\n Shaping each application with dedication and love for this ever-evolving universe",
     "pages.home.aboutRedirect": "Learn more",
-    "pages.home.blogRedirect": "More posts",
-    "pages.home.myRecentPosts": "My recent posts",
     "pages.home.myRecentProjects": "My recent projects",
     "pages.home.projectsRedirect": "More projects",
     "pages.home.myStack": "Stack",
@@ -56,6 +54,10 @@ export const translations: RecordValues<
     "nav.stack": "Stack",
     "nav.bookmarks": "Bookmarks",
     "nav.contact": "Contact",
+
+    // Feature Blog
+    "features.blog.redirect": "More posts",
+    "features.blog.myRecentPosts": "My recent posts",
   },
   fr: {
     // Home Page
@@ -63,8 +65,6 @@ export const translations: RecordValues<
     "pages.home.subtitle":
       "Je suis plus qu'un développeur mobile\n Je suis un artisan passionné\n Façonnant chaque application avec dévouement et amour pour cet univers en constante évolution",
     "pages.home.aboutRedirect": "En savoir plus",
-    "pages.home.blogRedirect": "Plus d'articles",
-    "pages.home.myRecentPosts": "Mes publications récentes",
     "pages.home.myRecentProjects": "Mes projets récents",
     "pages.home.projectsRedirect": "Plus de projets",
     "pages.home.myStack": "Stack",
@@ -101,5 +101,9 @@ export const translations: RecordValues<
     "nav.stack": "Stack",
     "nav.bookmarks": "Signets",
     "nav.contact": "Contact",
+
+    // Feature Blog
+    "features.blog.redirect": "Plus d'articles",
+    "features.blog.myRecentPosts": "Mes publications récentes",
   },
 } as const;

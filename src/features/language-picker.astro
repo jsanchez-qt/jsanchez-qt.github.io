@@ -1,9 +1,5 @@
 ---
-import { languages } from "src/i18n/translations";
 import { getLangFromUrl, getRouteFromUrl, useRouter } from "src/i18n";
-import Icon from "src/components/atoms/icons/icon.astro";
-import type { ValueOf } from "src/types";
-import type { LANGUAGES } from "src/constants/languages";
 
 const lang = getLangFromUrl(Astro.url);
 const route = getRouteFromUrl(Astro.url);

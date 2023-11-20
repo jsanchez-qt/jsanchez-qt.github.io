@@ -1,0 +1,34 @@
+---
+import { getLangFromUrl, useRouter, useTranslations } from "src/i18n";
+import { getRecentBlogPosts } from "../api/get-recent-blog-posts";
+import SeparatorLink from "src/components/molecules/separator-link.astro";
+import RecentBlogPostItem from "./recent-blog-post-item.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const router = useRouter(lang);
+
+const recentBlogPosts = await getRecentBlogPosts(lang);
+---
+
+<div class="space-y-4 md:space-y-6">
+  <div class="space-y-2 md:space-y-3">
+    <h3
+      class="font-display font-semibold text-xl text-zinc-900 dark:text-zinc-100"
+    >
+      {t("features.blog.myRecentPosts")}
+    </h3>
+    <ul class="grid-cols-1 lg:grid-cols-3 grid gap-4">
+      {
+        recentBlogPosts.map((blogPost) => (
+          <RecentBlogPostItem blogPost={blogPost} />
+        ))
+      }
+    </ul>
+  </div>
+  <SeparatorLink
+    href={router("/blog")}
+    label={t("features.blog.redirect")}
+    icon="blog"
+  />
+</div>
