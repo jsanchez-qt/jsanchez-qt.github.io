@@ -1,0 +1,30 @@
+---
+import { getLangFromUrl, useRouter, useTranslations } from "src/i18n";
+import { getTopBookmarks } from "../api/get-top-bookmarks";
+import SeparatorLink from "src/components/molecules/separator-link.astro";
+import BookmarkItem from "./bookmark-item.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const router = useRouter(lang);
+
+const topBookmarks = await getTopBookmarks(lang);
+---
+
+<div class="space-y-4 md:space-y-6">
+  <div class="space-y-2 md:space-y-3">
+    <h3
+      class="font-display font-semibold text-xl text-zinc-900 dark:text-zinc-100"
+    >
+      {t("features.bookmarks.myBookmarks")}
+    </h3>
+    <ul class="space-y-4">
+      {topBookmarks.map((bookmark) => <BookmarkItem bookmark={bookmark} />)}
+    </ul>
+  </div>
+  <SeparatorLink
+    href={router("/bookmarks")}
+    label={t("features.bookmarks.redirect")}
+    icon="bookmarks"
+  />
+</div>

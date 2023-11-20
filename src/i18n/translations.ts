@@ -18,8 +18,6 @@ export const translations: RecordValues<
     "pages.home.subtitle":
       "I am more than a mobile developer\n I am a passionate craftsman\n Shaping each application with dedication and love for this ever-evolving universe",
     "pages.home.aboutRedirect": "Learn more",
-    "pages.home.myBookmarks": "My bookmarks",
-    "pages.home.bookmarksRedirect": "More bookmarks",
     "pages.home.contactRedirect": "Let's get in touch!",
 
     // About Page
@@ -62,6 +60,10 @@ export const translations: RecordValues<
     "features.stack.softStack": "Soft",
     "features.stack.hardStack": "Hard",
     "features.stack.redirect": "My complete Stack",
+
+    // Feature Bookmarks
+    "features.bookmarks.myBookmarks": "My bookmarks",
+    "features.bookmarks.redirect": "More bookmarks",
   },
   fr: {
     // Home Page
@@ -69,8 +71,6 @@ export const translations: RecordValues<
     "pages.home.subtitle":
       "Je suis plus qu'un développeur mobile\n Je suis un artisan passionné\n Façonnant chaque application avec dévouement et amour pour cet univers en constante évolution",
     "pages.home.aboutRedirect": "En savoir plus",
-    "pages.home.myBookmarks": "Mes signets",
-    "pages.home.bookmarksRedirect": "Plus de signets",
     "pages.home.contactRedirect": "Rentrons en contact !",
 
     // About Page
@@ -113,5 +113,9 @@ export const translations: RecordValues<
     "features.stack.softStack": "Soft",
     "features.stack.hardStack": "Hard",
     "features.stack.redirect": "Ma Stack complète",
+
+    // Feature Bookmarks
+    "features.bookmarks.myBookmarks": "Mes signets",
+    "features.bookmarks.redirect": "Plus de signets",
   },
 } as const;

@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Icon from "src/components/atoms/icons/icon.astro";
+
+interface Props {
+  bookmark: CollectionEntry<"bookmarks">;
+}
+
+const props = Astro.props;
+---
+
+<li
+  class:list={[
+    "group w-full h-fit rounded-lg overflow-hidden bg-primary-50 dark:bg-primary-950",
+    "transition-all shadow-md hover:shadow-xl",
+  ]}
+>
+  <a
+    class="flex flex-row space-x-4 px-4 py-2 items-center"
+    href={props.bookmark.data.url}
+  >
+    <Icon
+      class="w-6 h-6 aspect-square text-primary-600 dark:text-zinc-100 transition-transform transform duration-300 group-hover:scale-125"
+      name="bookmarks"
+    />
+    <div class="space-y-0.5">
+      <h2
+        class="font-display font-semibold text-sm text-zinc-900 dark:text-zinc-100 line-clamp-1"
+      >
+        {props.bookmark.data.name}
+      </h2>
+      <p class="text-sm text-zinc-700 dark:text-zinc-300 line-clamp-2">
+        {props.bookmark.data.caption}
+      </p>
+    </div>
+  </a>
+</li>

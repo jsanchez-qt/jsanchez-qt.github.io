@@ -7,17 +7,11 @@ import Icon from "src/components/atoms/icons/icon.astro";
 import RecentBlogPostList from "src/features/blog/components/recent-blog-post-list.astro";
 import RecentProjectList from "src/features/projects/components/recent-project-list.astro";
 import TopStackList from "src/features/stack/components/top-stack-list.astro";
+import TopBookmarkList from "src/features/bookmarks/components/top-bookmark-list.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const router = useRouter(lang);
-
-const bookmarks = await getCollection("bookmarks", ({ id }) => {
-  return id.startsWith(`${lang}/`);
-});
-const topBookmarks = bookmarks
-  .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
-  .slice(0, 5);
 
 const contacts = await getCollection("contacts");
 const sortedContacts = contacts.sort(
@@ -48,52 +42,7 @@ const sortedContacts = contacts.sort(
     <RecentBlogPostList />
     <RecentProjectList />
     <TopStackList />
-
-    {/* My Bookmarks */}
-    <div class="space-y-4 md:space-y-6">
-      <div class="space-y-2 md:space-y-3">
-        <h3
-          class="font-display font-semibold text-xl text-zinc-900 dark:text-zinc-100"
-        >
-          {t("pages.home.myBookmarks")}
-        </h3>
-        <ul class="space-y-4">
-          {
-            topBookmarks.map((bookmark) => (
-              <li
-                class:list={[
-                  "group w-full h-fit rounded-lg overflow-hidden bg-primary-50 dark:bg-primary-950",
-                  "transition-all shadow-md hover:shadow-xl",
-                ]}
-              >
-                <a
-                  class="flex flex-row space-x-4 px-4 py-2 items-center"
-                  href={bookmark.data.url}
-                >
-                  <Icon
-                    class="w-6 h-6 aspect-square text-primary-600 dark:text-zinc-100 transition-transform transform duration-300 group-hover:scale-125"
-                    name="bookmarks"
-                  />
-                  <div class="space-y-0.5">
-                    <h2 class="font-display font-semibold text-sm text-zinc-900 dark:text-zinc-100 line-clamp-1">
-                      {bookmark.data.name}
-                    </h2>
-                    <p class="text-sm text-zinc-700 dark:text-zinc-300 line-clamp-2">
-                      {bookmark.data.caption}
-                    </p>
-                  </div>
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-      <SeparatorLink
-        href={router("/bookmarks")}
-        label={t("pages.home.bookmarksRedirect")}
-        icon="bookmarks"
-      />
-    </div>
+    <TopBookmarkList />
 
     {/* Contact */}
     <div class="space-y-4 md:space-y-6">
