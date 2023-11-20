@@ -74,9 +74,9 @@ const props = Astro.props;
   id="sidebar"
   data-state="closed"
   class:list={[
-    "fixed top-0 left-0 z-40 w-full sm:w-[300px] h-screen bg-white/10 dark:bg-transparent/25 shadow-md",
+    "fixed top-0 left-0 z-40 w-full sm:w-[300px] h-full sm:h-screen bg-white/10 dark:bg-transparent/25 shadow-md",
     "transition-transform -translate-x-full sm:translate-x-0",
-    "data-[state=opened]:translate-x-0 data-[state=opened]:bg-white dark:data-[state=opened]:bg-zinc-950",
+    "data-[state=opened]:translate-x-0 data-[state=opened]:bg-white dark:data-[state=opened]:bg-gray-900",
   ]}
 >
   <div
@@ -85,7 +85,7 @@ const props = Astro.props;
     <div class="flex flex-row place-content-between">
       <button
         id="sidebar-close-button"
-        class="absolute top-4 right-4 sm:hidden"
+        class="absolute top-0 right-0 sm:hidden p-4"
         transition:persist
       >
         <Icon name="close" class="w-4 h-4 text-zinc-900 dark:text-white" />
@@ -138,6 +138,9 @@ const props = Astro.props;
   const onSidebarCloselick = () => {
     const element = document.getElementById("sidebar");
     element.setAttribute("data-state", "closed");
+
+    document.body.style.overflow = "auto";
+    document.body.style.height = "100%";
   };
 
   document

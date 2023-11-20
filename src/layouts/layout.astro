@@ -25,18 +25,20 @@ const props = Astro.props;
     <SeoHeader />
     <ViewTransitions />
   </head>
-  <body
-    class:list={[
-      "h-full w-screen bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))]",
-      "from-white via-primary-50 to-white dark:from-zinc-950 dark:via-primary-950 dark:to-zinc-950",
-    ]}
-  >
-    <Sidebar routeKey={props.routeKey} />
-    <div class="sm:ml-[300px]">
-      <StickyHeader />
-      <article class="p-4">
-        <slot />
-      </article>
+  <body class="bg-primary-50 dark:bg-primary-950">
+    <div
+      class:list={[
+        "h-full w-screen bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))]",
+        "from-white via-primary-50 to-white dark:from-zinc-950 dark:via-primary-950 dark:to-zinc-950",
+      ]}
+    >
+      <Sidebar routeKey={props.routeKey} />
+      <div class="sm:ml-[300px]">
+        <StickyHeader />
+        <article class="p-4">
+          <slot />
+        </article>
+      </div>
     </div>
   </body>
 </html>

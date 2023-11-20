@@ -25,6 +25,9 @@ import Icon from "src/components/atoms/icons/icon.astro";
   const onSidebarOpenClick = () => {
     const element = document.getElementById("sidebar");
     element.setAttribute("data-state", "opened");
+
+    document.body.style.overflow = "hidden";
+    document.body.style.height = "100vh";
   };
 
   document
