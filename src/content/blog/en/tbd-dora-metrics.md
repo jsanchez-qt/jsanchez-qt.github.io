@@ -4,7 +4,7 @@ title: 'Trunk-Based Development and DORA Metrics'
 subtitle: "The Trunk-Based Development and its impact on DORA Metrics: an approach to optimize development efficiency."
 releaseDate: 2023-11-16
 image:
-  url: "https://picsum.photos/1000?random=3"
+  url: "/images/blog/tbd-dora-metrics.jpg"
   alt: "lorem piscum"
 ---
 
