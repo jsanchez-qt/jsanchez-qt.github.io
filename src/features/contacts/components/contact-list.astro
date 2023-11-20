@@ -1,0 +1,34 @@
+---
+import { getLangFromUrl, useRouter, useTranslations } from "src/i18n";
+import { getContacts } from "../api/get-contacts";
+import ContactItem from "./contact-item.astro";
+import Icon from "src/components/atoms/icons/icon.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const router = useRouter(lang);
+
+const contacts = await getContacts(lang);
+---
+
+<div class="space-y-4 md:space-y-6">
+  <a class="" href={router("/contact")}>
+    <h1
+      class:list={[
+        "group w-fit flex flex-row items-center gap-x-4",
+        "font-display text-xl md:text-2xl lg:text-3xl text-zinc-900 dark:text-zinc-100",
+        "transition-transform transform duration-500 hover:scale-110 hover:translate-x-10",
+      ]}
+    >
+      {t("features.contacts.redirect")}
+      <span class="hidden md:flex flex-row space-x-2">
+        <Icon class="w-5 h-5" name="contact" />
+        <Icon class="w-5 h-5" name="contact" />
+        <Icon class="w-5 h-5" name="contact" />
+      </span>
+    </h1>
+  </a>
+  <ul class="flex flex-row space-x-4">
+    {contacts.map((contact) => <ContactItem contact={contact} />)}
+  </ul>
+</div>

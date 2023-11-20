@@ -1,22 +1,16 @@
 ---
 import { getLangFromUrl, useRouter, useTranslations } from "src/i18n";
 import Layout from "src/layouts/layout.astro";
-import { getCollection } from "astro:content";
 import SeparatorLink from "src/components/molecules/separator-link.astro";
-import Icon from "src/components/atoms/icons/icon.astro";
 import RecentBlogPostList from "src/features/blog/components/recent-blog-post-list.astro";
 import RecentProjectList from "src/features/projects/components/recent-project-list.astro";
 import TopStackList from "src/features/stack/components/top-stack-list.astro";
 import TopBookmarkList from "src/features/bookmarks/components/top-bookmark-list.astro";
+import ContactList from "src/features/contacts/components/contact-list.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const router = useRouter(lang);
-
-const contacts = await getCollection("contacts");
-const sortedContacts = contacts.sort(
-  (a, b) => a.data.sortOrder - b.data.sortOrder
-);
 ---
 
 <Layout routeKey="home">
@@ -43,45 +37,6 @@ const sortedContacts = contacts.sort(
     <RecentProjectList />
     <TopStackList />
     <TopBookmarkList />
-
-    {/* Contact */}
-    <div class="space-y-4 md:space-y-6">
-      <a class="" href={router("/contact")}>
-        <h1
-          class:list={[
-            "group w-fit flex flex-row items-center gap-x-4",
-            "font-display text-xl md:text-2xl lg:text-3xl text-zinc-900 dark:text-zinc-100",
-            "transition-transform transform duration-500 hover:scale-110 hover:translate-x-10",
-          ]}
-        >
-          {t("pages.home.contactRedirect")}
-          <span class="hidden md:flex flex-row space-x-2">
-            <Icon class="w-5 h-5" name="contact" />
-            <Icon class="w-5 h-5" name="contact" />
-            <Icon class="w-5 h-5" name="contact" />
-          </span>
-        </h1>
-      </a>
-      <ul class="flex flex-row space-x-4">
-        {
-          sortedContacts.map((contact) => (
-            <li>
-              <a
-                class="group flex flex-row items-center gap-x-2"
-                href={contact.data.url}
-              >
-                <Icon
-                  class="w-6 h-6 aspect-square transition-transform transform duration-500 group-hover:scale-125 text-zinc-700 dark:text-zinc-200"
-                  name={contact.id}
-                />
-                <p class="hidden lg:flex font-sans text-sm text-zinc-700 dark:text-zinc-200">
-                  {contact.data.name}
-                </p>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
+    <ContactList />
   </div>
 </Layout>

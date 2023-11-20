@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Icon from "src/components/atoms/icons/icon.astro";
+
+interface Props {
+  contact: CollectionEntry<"contacts">;
+}
+
+const props = Astro.props;
+---
+
+<li>
+  <a
+    class="group flex flex-row items-center gap-x-2"
+    href={props.contact.data.url}
+  >
+    <Icon
+      class="w-6 h-6 aspect-square transition-transform transform duration-500 group-hover:scale-125 text-zinc-700 dark:text-zinc-200"
+      name={props.contact.id}
+    />
+    <p
+      class="hidden lg:flex font-sans text-sm text-zinc-700 dark:text-zinc-200"
+    >
+      {props.contact.data.name}
+    </p>
+  </a>
+</li>
