@@ -1,0 +1,31 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import { getLangFromUrl, useRouter } from "src/i18n";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const lang = getLangFromUrl(Astro.url);
+const router = useRouter(lang);
+
+const props = Astro.props;
+---
+
+<li
+  class:list={[
+    "w-full h-[200px] lg:h-[250px] rounded-lg overflow-hidden",
+    "shadow-md hover:shadow-xl transition-all transform duration-500 hover:scale-105",
+  ]}
+>
+  <a href={router(`/projects/${props.project.slug}`)}>
+    <Image
+      class="object-cover object-center w-full h-full"
+      width={800}
+      height={800}
+      src={props.project.data.image.url}
+      alt={props.project.data.image.alt}
+    />
+  </a>
+</li>

@@ -1,0 +1,30 @@
+---
+import { getLangFromUrl, useRouter, useTranslations } from "src/i18n";
+import { getRecentProjects } from "../api/get-recent-projects";
+import SeparatorLink from "src/components/molecules/separator-link.astro";
+import RecentProjectItem from "./recent-project-item.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const router = useRouter(lang);
+
+const recentProjects = await getRecentProjects(lang);
+---
+
+<div class="space-y-4 md:space-y-6">
+  <div class="space-y-2 md:space-y-3">
+    <h3
+      class="font-display font-semibold text-xl text-zinc-900 dark:text-zinc-100"
+    >
+      {t("features.projects.myRecentProjects")}
+    </h3>
+    <ul class="grid-cols-1 lg:grid-cols-2 grid gap-4">
+      {recentProjects.map((project) => <RecentProjectItem project={project} />)}
+    </ul>
+  </div>
+  <SeparatorLink
+    href={router("/projects")}
+    label={t("features.projects.redirect")}
+    icon="projects"
+  />
+</div>

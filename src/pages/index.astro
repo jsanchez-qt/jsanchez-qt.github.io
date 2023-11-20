@@ -6,17 +6,11 @@ import { Image } from "astro:assets";
 import SeparatorLink from "src/components/molecules/separator-link.astro";
 import Icon from "src/components/atoms/icons/icon.astro";
 import RecentBlogPostList from "src/features/blog/components/recent-blog-post-list.astro";
+import RecentProjectList from "src/features/projects/components/recent-project-list.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const router = useRouter(lang);
-
-const projects = await getCollection("projects", ({ id }) => {
-  return id.startsWith(`${lang}/`);
-});
-const recentProjects = projects
-  .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
-  .slice(0, 2);
 
 const hardStack = await getCollection("stack", ({ id }) => {
   return id.startsWith(`${lang}/hard`);
@@ -47,7 +41,6 @@ const sortedContacts = contacts.sort(
 
 <Layout routeKey="home">
   <div class="p-2 sm:p-4 md:p-6 space-y-4 md:space-y-6">
-    {/* About me */}
     <div class="space-y-4 md:space-y-6">
       <h1
         class="font-display text-3xl text-zinc-900 dark:text-zinc-100 whitespace-pre-line"
@@ -67,44 +60,7 @@ const sortedContacts = contacts.sort(
     </div>
 
     <RecentBlogPostList />
-
-    {/* Recent Projects */}
-    <div class="space-y-4 md:space-y-6">
-      <div class="space-y-2 md:space-y-3">
-        <h3
-          class="font-display font-semibold text-xl text-zinc-900 dark:text-zinc-100"
-        >
-          {t("pages.home.myRecentProjects")}
-        </h3>
-        <ul class="grid-cols-1 lg:grid-cols-2 grid gap-4">
-          {
-            recentProjects.map((project) => (
-              <li
-                class:list={[
-                  "w-full h-[200px] lg:h-[250px] rounded-lg overflow-hidden",
-                  "shadow-md hover:shadow-xl transition-all transform duration-500 hover:scale-105",
-                ]}
-              >
-                <a href={router(`/projects/${project.slug}`)}>
-                  <Image
-                    class="object-cover object-center w-full h-full"
-                    width={800}
-                    height={800}
-                    src={project.data.image.url}
-                    alt={project.data.image.alt}
-                  />
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-      <SeparatorLink
-        href={router("/projects")}
-        label={t("pages.home.projectsRedirect")}
-        icon="projects"
-      />
-    </div>
+    <RecentProjectList />
 
     {/* My Stack */}
     <div class="space-y-4 md:space-y-6">
