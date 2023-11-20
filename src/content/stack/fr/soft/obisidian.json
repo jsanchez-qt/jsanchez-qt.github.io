@@ -5,7 +5,7 @@
   "description": "...",
   "url": "https://obsidian.md/",
   "icon": {
-    "url": "https://picsum.photos/100?random=102",
-    "alt": "..."
+    "url": "/images/stack/soft/obsidian.png",
+    "alt": "Obsidian Logo"
   }
 }

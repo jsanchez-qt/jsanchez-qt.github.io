@@ -21,7 +21,10 @@ const props = Astro.props;
   >
     <div class="w-20 h-20 flex justify-center items-center">
       <Image
-        class="object-cover object-center transition-transform transform duration-500 group-hover:scale-125"
+        class:list={[
+          "p-1 rounded-md",
+          "object-cover object-center transition-transform transform duration-500 group-hover:scale-125 shadow-lg",
+        ]}
         width={50}
         height={50}
         src={props.stackItem.data.icon.url}

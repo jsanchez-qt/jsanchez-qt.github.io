@@ -1,7 +1,7 @@
 ---
 import { getLangFromUrl, useRouter, useTranslations } from "src/i18n";
-import { getHardStack } from "../api/get-hard-stack";
-import { getSoftStack } from "../api/get-soft-stack";
+import { getTopHardStack } from "../api/get-top-hard-stack";
+import { getTopSoftStack } from "../api/get-top-soft-stack";
 import SeparatorLink from "src/components/molecules/separator-link.astro";
 import StackItem from "./stack-item.astro";
 
@@ -9,8 +9,8 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const router = useRouter(lang);
 
-const hardStackItems = await getHardStack(lang);
-const softStackItems = await getSoftStack(lang);
+const hardStackItems = await getTopHardStack(lang);
+const softStackItems = await getTopSoftStack(lang);
 ---
 
 <div class="space-y-4 md:space-y-6">

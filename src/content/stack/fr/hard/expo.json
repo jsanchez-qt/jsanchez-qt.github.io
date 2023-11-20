@@ -5,7 +5,7 @@
   "description": "...",
   "url": "https://docs.expo.dev/",
   "icon": {
-    "url": "https://picsum.photos/100?random=201",
-    "alt": "..."
+    "url": "/images/stack/hard/expo.png",
+    "alt": "Expo Logo"
   }
 }

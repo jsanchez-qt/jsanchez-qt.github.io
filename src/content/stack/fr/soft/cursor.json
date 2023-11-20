@@ -5,7 +5,7 @@
   "description": "...",
   "url": "https://cursor.sh/",
   "icon": {
-    "url": "https://picsum.photos/100?random=101",
-    "alt": "..."
+    "url": "/images/stack/soft/cursor.png",
+    "alt": "Cursor Logo"
   }
 }

@@ -5,7 +5,7 @@
   "description": "...",
   "url": "https://tanstack.com/query/latest",
   "icon": {
-    "url": "https://picsum.photos/100?random=204",
-    "alt": "..."
+    "url": "/images/stack/hard/tanstack-query.png",
+    "alt": "TanStack Query Logo"
   }
 }

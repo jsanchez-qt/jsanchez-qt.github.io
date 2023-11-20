@@ -5,7 +5,7 @@
   "description": "...",
   "url": "https://arc.net/",
   "icon": {
-    "url": "https://picsum.photos/100?random=105",
-    "alt": "..."
+    "url": "/images/stack/soft/arc.png",
+    "alt": "Arc Browser Logo"
   }
 }

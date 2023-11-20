@@ -5,7 +5,7 @@
   "description": "...",
   "url": "https://linear.app/",
   "icon": {
-    "url": "https://picsum.photos/100?random=104",
-    "alt": "..."
+    "url": "/images/stack/soft/linear.png",
+    "alt": "Linear Logo"
   }
 }

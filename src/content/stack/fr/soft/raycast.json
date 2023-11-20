@@ -5,7 +5,7 @@
   "description": "...",
   "url": "https://www.raycast.com/",
   "icon": {
-    "url": "https://picsum.photos/100?random=103",
-    "alt": "..."
+    "url": "/images/stack/soft/raycast.png",
+    "alt": "Raycast Logo"
   }
 }

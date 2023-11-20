@@ -5,7 +5,7 @@
   "description": "...",
   "url": "https://alexandersandberg.com/apps/balance/",
   "icon": {
-    "url": "https://picsum.photos/100?random=104",
-    "alt": "..."
+    "url": "/images/stack/soft/balance.png",
+    "alt": "Balance Logo"
   }
 }

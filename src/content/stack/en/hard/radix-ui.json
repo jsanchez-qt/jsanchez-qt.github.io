@@ -1,0 +1,11 @@
+{
+  "sortOrder": 6,
+  "name": "Radix UI",
+  "caption": "UI Components",
+  "description": "...",
+  "url": "https://www.radix-ui.com/",
+  "icon": {
+    "url": "/images/stack/hard/radix-ui.png",
+    "alt": "Radix UI Logo"
+  }
+}

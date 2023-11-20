@@ -2,9 +2,14 @@
 import Icon from "src/components/atoms/icons/icon.astro";
 ---
 
-<button id="theme-toggle" data-theme-toggle class="w-6 h-6" transition:persist>
-  <Icon name="theme-light" class="hidden dark:block text-zinc-100" />
-  <Icon name="theme-dark" class="block dark:hidden text-zinc-900" />
+<button
+  id="theme-toggle"
+  data-theme-toggle
+  class="w-6 h-6 text-primary-700 dark:text-zinc-100"
+  transition:persist
+>
+  <Icon name="theme-light" class="hidden dark:block" />
+  <Icon name="theme-dark" class="block dark:hidden" />
 </button>
 
 <script is:inline>
