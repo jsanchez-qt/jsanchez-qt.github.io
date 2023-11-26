@@ -1,0 +1,16 @@
+{
+  "title": "Front-end Developer",
+  "company": "c-o-e, Freelance",
+  "description": "For 3 months, I joined the c-o-e team to work on an eBanking software in React. I came to lead the Front-end team and continue the development and maintenance of the tool.\n\nThe main focus of the mission was to set up a complete dashboard to track various data from multiple bank accounts, transactions, etc. The HighCharts library was used for the graphs on these dashboards.\n\nDevelopment stack:\n- Front-end, JavaScript, React, Redux, and Redux-Observable\n- Back-end, C# .NET\n",
+  "startYear": 2021,
+  "endYear": 2022,
+  "tags": [
+    "JavaScript",
+    "React",
+    "C#",
+    ".NET",
+    "Highcharts",
+    "Redux",
+    "Redux-Observable"
+  ]
+}

@@ -13,6 +13,8 @@ export const translations: RecordValues<
   Record<string, string>
 > = {
   en: {
+    "common.today": "Today",
+
     // Home Page
     "pages.home.title": "Julien Sanchez-Porro,\n Mobile Developer",
     "pages.home.subtitle":
@@ -82,8 +84,14 @@ export const translations: RecordValues<
     "features.about.stack.description":
       "Expo, Zustand, Radix UI, Cursor, Linear, Obsidian... I share my complete stack and my favorite tools to gain productivity and comfort.",
     "features.about.stack.redirect": "See my stack",
+
+    // Feature Experience,
+    "features.experience.work": "Professional",
+    "features.experience.education": "Education",
   },
   fr: {
+    "common.today": "Aujourd'hui",
+
     // Home Page
     "pages.home.title": "Julien Sanchez-Porro,\n Développeur Mobile",
     "pages.home.subtitle":
@@ -153,5 +161,9 @@ export const translations: RecordValues<
     "features.about.stack.description":
       "Expo, Zustand, Radix UI, Cursor, Linear, Obsidian... je vous partage ma stack complète et mes outils favoris pour gagner en productivité et confort.",
     "features.about.stack.redirect": "Voir ma stack",
+
+    // Feature Experience,
+    "features.experience.work": "Professionnelle",
+    "features.experience.education": "Formation",
   },
 } as const;

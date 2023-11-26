@@ -1,0 +1,16 @@
+{
+  "title": "Lead Développeur Mobile",
+  "company": "Lapsus, Freelance",
+  "description": "Pendant 9 mois j’ai rejoint une équipe de développeurs confirmé et junior, j’ai rapidement pris une place importante au sein du groupe en prenant des responsabilités et en formant mes collègues.\n\nStack de développement :\n- Front; TypeScript, React Native, GraphQL et AWS Amplify\n- Features, Messagerie, Notifications Push, Achat in-app, Flux vidéo, AppsFlyer, Google Ads etc.\n",
+  "startYear": 2022,
+  "endYear": 2022,
+  "tags": [
+    "TypeScript",
+    "React Native",
+    "Expo",
+    "GraphQL",
+    "IAP",
+    "Google Ads",
+    "AWS"
+  ]
+}

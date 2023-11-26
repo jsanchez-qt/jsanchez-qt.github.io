@@ -1,0 +1,55 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Separator from "src/components/atoms/separator.astro";
+import { getLangFromUrl, useTranslations } from "src/i18n";
+
+interface Props {
+  experience: CollectionEntry<"experiences">;
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const props = Astro.props;
+---
+
+<li
+  class:list={[
+    "w-full transition-all shadow-md rounded-lg overflow-hidden px-6 py-4",
+    "text-primary-600 dark:text-zinc-100 bg-primary-50 dark:bg-primary-950",
+  ]}
+>
+  <div class="space-y-3">
+    <span>
+      <h2
+        class="font-display text-base text-zinc-900 dark:text-zinc-100 line-clamp-1"
+      >
+        {props.experience.data.title}
+      </h2>
+      <p class="text-xs text-zinc-500 dark:text-zinc-500 line-clamp-1">
+        {props.experience.data.company}
+      </p>
+      <p class="text-xs text-zinc-500 dark:text-zinc-500 line-clamp-1">
+        {props.experience.data.startYear} - {
+          props.experience.data.endYear === 9999
+            ? t("common.today")
+            : props.experience.data.endYear
+        }
+      </p>
+    </span>
+    <Separator />
+    <p class="text-sm text-zinc-700 dark:text-zinc-300 whitespace-pre-line">
+      {props.experience.data.description}
+    </p>
+    <Separator />
+    <span class="flex flex-row flex-wrap gap-2 text-sm">
+      {
+        props.experience.data.tags.map((tag) => (
+          <span class="rounded-full bg-primary-100 dark:bg-primary-900 text-xs text-primary-600 dark:text-zinc-100 px-2 py-1 shadow-md">
+            {tag}
+          </span>
+        ))
+      }
+    </span>
+  </div>
+</li>

@@ -4,11 +4,17 @@ import { getContacts } from "../api/get-contacts";
 import ContactItem from "./contact-item.astro";
 import Icon from "src/components/atoms/icons/icon.astro";
 
+interface Props {
+  hideNetworks?: boolean;
+}
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const router = useRouter(lang);
 
 const contacts = await getContacts(lang);
+
+const props = Astro.props;
 ---
 
 <div class="space-y-4 md:space-y-6">
@@ -28,7 +34,13 @@ const contacts = await getContacts(lang);
       </span>
     </h1>
   </a>
-  <ul class="flex flex-row space-x-4">
-    {contacts.map((contact) => <ContactItem contact={contact} />)}
-  </ul>
+  {
+    !props.hideNetworks && (
+      <ul class="flex flex-row space-x-4">
+        {contacts.map((contact) => (
+          <ContactItem contact={contact} />
+        ))}
+      </ul>
+    )
+  }
 </div>

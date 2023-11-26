@@ -1,8 +1,10 @@
 ---
 import Separator from "src/components/atoms/separator.astro";
 import AboutBanner from "src/features/about/components/about-banner.astro";
+import ExperienceGrid from "src/features/experiences/components/experience-grid.astro";
 import AboutRedirects from "src/features/about/components/about-redirects.astro";
 import Layout from "src/layouts/layout.astro";
+import ContactList from "src/features/contacts/components/contact-list.astro";
 ---
 
 <Layout routeKey="about">
@@ -10,5 +12,8 @@ import Layout from "src/layouts/layout.astro";
     <AboutBanner />
     <Separator />
     <AboutRedirects />
+    <ExperienceGrid />
+    <Separator />
+    <ContactList hideNetworks />
   </div>
 </Layout>

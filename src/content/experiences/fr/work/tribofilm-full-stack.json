@@ -1,0 +1,20 @@
+{
+  "title": "Développeur Full Stack",
+  "company": "Tribofilm, Périgny France",
+  "description": "TRIBOFILM est un éditeur de logiciels de GMAO. J’ai participé au développement de son logiciel principal (MAINTI4) développé en AngularJS pour la partie Front et en C# pour le Back. J’ai également développé des applications en Angular 6+ et C# pour des clients spécifiques.\n\n Travail sur toutes les étapes du développement d'une application :\n - Analyse du besoin et chiffrage\n - Développement Web Front (Angular, AngularJS)\n - Développement Back (C#, .NET Core)\n - Développement Android (Java, Kotlin)\n - Base de données (SQL Server)\n - Déploiement en production (IIS)",
+  "startYear": 2015,
+  "endYear": 2020,
+  "tags": [
+    "Angular",
+    "AngularJS",
+    "C#",
+    ".NET Core",
+    "SQL Server",
+    "Java",
+    "Kotlin",
+    "IIS",
+    "Web",
+    "Mobile",
+    "Android"
+  ]
+}

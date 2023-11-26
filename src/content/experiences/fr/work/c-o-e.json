@@ -1,0 +1,16 @@
+{
+  "title": "Développeur Front",
+  "company": "c-o-e, Freelance",
+  "description": "Pendant 3 mois j'ai rejoint l'équipe de c-o-e pour travailler sur un logiciel de eBanking en React. Je suis venu pour prendre le lead de l'équipe Front et poursuivre le développement et la maintenance de l'outil.\n\nLe principal sujet de la mission a été la mise en place d'un dashboard complet pour suivre les différentes données de plusieurs comptes bancaires, mouvements, etc. La librairie HighCharts a été utilisée pour les graphiques de ces dashboards.\n\nStack de développement :\n- Front, JavaScript, React, Redux et Redux-Observable\n- Back, C# .NET\n",
+  "startYear": 2021,
+  "endYear": 2022,
+  "tags": [
+    "JavaScript",
+    "React",
+    "C#",
+    ".NET",
+    "Highcharts",
+    "Redux",
+    "Redux-Observable"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "title": "Full Stack Developer",
+  "company": "Rakuten DX, Freelance",
+  "description": "For 3 months, I rejoined the Rakuten DX teams to continue the development of a PWA. My tasks remained the same as in my previous mission but with more responsibilities for the quality of deliverables.\n\nMission characteristics reminder:\n- 100% English environment (meetings, documentation, communication, etc.)\n- Frontend: TypeScript, WebComponent with LitElement, Ionic router, Jasmine tests\n- Backend: TypeScript, Node.JS with NestJS framework, integration with Prismic and Guardian APIs, Jest tests\n- Data: Use of Prismic CMS and Cloud Firestore\n- Deployment: Google Cloud Platform\n- Authentication: Implementation of Okta authentication\n",
+  "startYear": 2021,
+  "endYear": 2021,
+  "tags": [
+    "English",
+    "PWA",
+    "TypeScript",
+    "NodeJS",
+    "LitElement",
+    "Firebase",
+    "Jest",
+    "Prismic",
+    "Okta"
+  ]
+}

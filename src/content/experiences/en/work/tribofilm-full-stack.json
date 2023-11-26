@@ -1,0 +1,20 @@
+{
+  "title": "Full Stack Developer",
+  "company": "Tribofilm, Périgny France",
+  "description": "TRIBOFILM is a CMMS software editor. I participated in the development of its main software (MAINTI4) developed in AngularJS for the Front-end and in C# for the Back-end. I also developed applications in Angular 6+ and C# for specific clients.\n\n Work on all stages of application development:\n - Needs analysis and estimation\n - Front-end Web Development (Angular, AngularJS)\n - Back-end Development (C#, .NET Core)\n - Android Development (Java, Kotlin)\n - Database (SQL Server)\n - Production deployment (IIS)",
+  "startYear": 2015,
+  "endYear": 2020,
+  "tags": [
+    "Angular",
+    "AngularJS",
+    "C#",
+    ".NET Core",
+    "SQL Server",
+    "Java",
+    "Kotlin",
+    "IIS",
+    "Web",
+    "Mobile",
+    "Android"
+  ]
+}

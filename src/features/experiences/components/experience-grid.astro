@@ -1,0 +1,46 @@
+---
+import { getLangFromUrl, useTranslations } from "src/i18n";
+import { getWorkExperiences } from "../api/get-work-experiences copy";
+import { getEducationExperiences } from "../api/get-education-experiences";
+import ExperienceGridItem from "./experience-grid-item.astro";
+import Icon from "src/components/atoms/icons/icon.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const workExperiences = await getWorkExperiences(lang);
+const educationExperiences = await getEducationExperiences(lang);
+---
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-y-8 lg:gap-x-4">
+  <div class="space-y-1 md:space-y-2">
+    <h3
+      class="flex flex-row gap-x-2 font-display text-xl text-zinc-900 dark:text-zinc-100"
+    >
+      <Icon name="work" class="w-6 h-6 self-center" />
+      {t("features.experience.work")}
+    </h3>
+    <ul class="space-y-4">
+      {
+        workExperiences.map((experience) => (
+          <ExperienceGridItem experience={experience} />
+        ))
+      }
+    </ul>
+  </div>
+  <div class="space-y-1 md:space-y-2">
+    <h3
+      class="flex flex-row gap-x-2 font-display text-xl text-zinc-900 dark:text-zinc-100"
+    >
+      <Icon name="education" class="w-6 h-6 self-center" />
+      {t("features.experience.education")}
+    </h3>
+    <ul class="space-y-4">
+      {
+        educationExperiences.map((experience) => (
+          <ExperienceGridItem experience={experience} />
+        ))
+      }
+    </ul>
+  </div>
+</div>

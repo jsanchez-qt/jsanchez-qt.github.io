@@ -1,0 +1,17 @@
+{
+  "title": "Développeur Full Stack",
+  "company": "Rakuten DX, Freelance",
+  "description": "Pendant 4 mois j'ai rejoint une équipe Scrum au sein de Rakuten DX afin de les aider au développement d'une PWA. J'ai évolué dans un environnement entièrement anglais, réunions, rédactions, échanges, etc.\n\n Stack de développement :\n-  Front, TypeScript, WebComponent en LitElement, routeur Ionic, tests Jasmine\n-  Back, TypeScript, Node.JS avec le framework NestJS, pont vers les API Prismic et Guardian, tests avec Jest\n-  Données, utilisation du CMS Prismic et de Cloud Firestore\n-  Déploiement, Google Cloud Platform\n",
+  "startYear": 2020,
+  "endYear": 2021,
+  "tags": [
+    "Anglais",
+    "PWA",
+    "TypeScript",
+    "NodeJS",
+    "LitElement",
+    "Firebase",
+    "Jest",
+    "Prismic"
+  ]
+}

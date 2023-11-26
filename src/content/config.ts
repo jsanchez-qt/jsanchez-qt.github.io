@@ -51,4 +51,23 @@ const contacts = defineCollection({
   }),
 });
 
-export const collections = { blog, projects, stack, bookmarks, contacts };
+const experiences = defineCollection({
+  type: "data",
+  schema: z.object({
+    title: z.string(),
+    company: z.string(),
+    description: z.string(),
+    startYear: z.number(),
+    endYear: z.number(),
+    tags: z.array(z.string()),
+  }),
+});
+
+export const collections = {
+  blog,
+  projects,
+  stack,
+  bookmarks,
+  contacts,
+  experiences,
+};

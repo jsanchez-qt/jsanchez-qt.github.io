@@ -1,0 +1,17 @@
+{
+  "title": "CTO - Full Stack Developer",
+  "company": "Oshi, Co-founder",
+  "description": "Development of a mobile application for IOS and Android using React Native, available on the app stores. The application has attracted 7000 users, with 200 active users per day. The project is currently on stand-by.\n\nDevelopment stack:\n- Frontend, TypeScript, React Native, and Redux\n- Backend, TypeScript, Node.JS, Google Cloud Functions, and Strapi API\n- Data, using the Strapi CMS, Google Cloud Firestore, and Cloud Storage\n- Deployment, Expo for the mobile app, and Google Cloud Run for the Strapi API\n- Features, Messaging, Push Notifications, In-app Purchases\n",
+  "startYear": 2021,
+  "endYear": 2022,
+  "tags": [
+    "TypeScript",
+    "React Native",
+    "Expo",
+    "Firebase",
+    "Cloud Functions",
+    "Strapi",
+    "IAP",
+    "Redux"
+  ]
+}
