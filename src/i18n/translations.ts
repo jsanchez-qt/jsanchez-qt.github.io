@@ -19,9 +19,6 @@ export const translations: RecordValues<
       "I am more than a mobile developer\n I am a passionate craftsman\n Shaping each application with dedication and love for this ever-evolving universe",
     "pages.home.aboutRedirect": "Learn more",
 
-    // About Page
-    "pages.about.content": "About page content",
-
     // Blog Page
     "pages.blog.content": "Blog page content",
 
@@ -66,6 +63,25 @@ export const translations: RecordValues<
 
     // Feature Contacts
     "features.contacts.redirect": "Let's get in touch!",
+
+    // Feature About
+    "features.about.title": "About me?",
+    "features.about.subtitle": "Julien Sanchez-Porro, 28 ans",
+    "features.about.location": "Savines-le-Lac, France",
+    "features.about.description":
+      "I've always been interested in computer science and dreamed of becoming a developer. With 9 years of experience in web and mobile development, I've specialized in (Expo) React Native for the last 4 years.\n\nMy future objectives: deepening my skills in native development (Kotlin and Swift) and in Software Craftsmanship.",
+    "features.about.blog": "Blog",
+    "features.about.blog.description":
+      "I enjoy engaging in the exercise of writing tech articles. In the world of development, sharing knowledge and feedback are essential elements for progress.",
+    "features.about.blog.redirect": "Read my posts",
+    "features.about.projects": "Projects",
+    "features.about.projects.description":
+      "Over the recent years, I've been able to carry out a number of React projects with NextJS, as well as mobile applications with React Native.",
+    "features.about.projects.redirect": "See my projects",
+    "features.about.stack": "Stack",
+    "features.about.stack.description":
+      "Expo, Zustand, Radix UI, Cursor, Linear, Obsidian... I share my complete stack and my favorite tools to gain productivity and comfort.",
+    "features.about.stack.redirect": "See my stack",
   },
   fr: {
     // Home Page
@@ -73,9 +89,6 @@ export const translations: RecordValues<
     "pages.home.subtitle":
       "Je suis plus qu'un développeur mobile\n Je suis un artisan passionné\n Façonnant chaque application avec dévouement et amour pour cet univers en constante évolution",
     "pages.home.aboutRedirect": "En savoir plus",
-
-    // About Page
-    "pages.about.content": "Contenu de la page À propos",
 
     // Blog Page
     "pages.blog.content": "Contenu de la page Blog",
@@ -121,5 +134,24 @@ export const translations: RecordValues<
 
     // Feature Contacts
     "features.contacts.redirect": "Rentrons en contact !",
+
+    // Feature About
+    "features.about.title": "À propos de moi?",
+    "features.about.subtitle": "Julien Sanchez-Porro, 28 ans",
+    "features.about.location": "Savines-le-Lac, France",
+    "features.about.description":
+      "J'ai toujours été intéressé par l'informatique et rêvé de devenir développeur. Avec 9 ans d'expérience en développement web et mobile, je me suis spécialisé depuis 4 ans sur (Expo) React Native.\n\n Mes objectifs futurs : l'approfondissement de mes compétences en développement natif (Kotlin et Swift) et en Software Craftsmanship.",
+    "features.about.blog": "Blog",
+    "features.about.blog.description":
+      "J'aime me prêter à l'exercice de l'écriture d'article tech. Dans le monde du dev, le partage des connaissances et le feedback sont des éléments essentiels à la progression.",
+    "features.about.blog.redirect": "Lire mes articles",
+    "features.about.projects": "Projets",
+    "features.about.projects.description":
+      "Au cours de ces dernières j'ai pu réaliser un certains nombre de projets React avec NextJS mais aussi des applications mobiles avec React Native.",
+    "features.about.projects.redirect": "Voir mes projets",
+    "features.about.stack": "Stack",
+    "features.about.stack.description":
+      "Expo, Zustand, Radix UI, Cursor, Linear, Obsidian... je vous partage ma stack complète et mes outils favoris pour gagner en productivité et confort.",
+    "features.about.stack.redirect": "Voir ma stack",
   },
 } as const;

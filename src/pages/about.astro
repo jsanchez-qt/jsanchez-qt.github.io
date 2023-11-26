@@ -1,13 +1,14 @@
 ---
-import { getLangFromUrl, useTranslations } from "src/i18n";
+import Separator from "src/components/atoms/separator.astro";
+import AboutBanner from "src/features/about/components/about-banner.astro";
+import AboutRedirects from "src/features/about/components/about-redirects.astro";
 import Layout from "src/layouts/layout.astro";
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
 ---
 
 <Layout routeKey="about">
-  <div class="h-screen p-2 sm:p-4 md:p-6">
-    <h1 class="text-zinc-900 dark:text-zinc-100">{t("pages.about.content")}</h1>
+  <div class="p-2 sm:p-4 md:p-6 space-y-8">
+    <AboutBanner />
+    <Separator />
+    <AboutRedirects />
   </div>
 </Layout>

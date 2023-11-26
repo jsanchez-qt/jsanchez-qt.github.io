@@ -1,0 +1,43 @@
+---
+import { getLangFromUrl, useTranslations } from "src/i18n";
+import { Image } from "astro:assets";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-y-8 lg:gap-x-4">
+  <div class="flex-1 space-y-2 max-w-[600px]">
+    <h1
+      class="font-display text-xl md:text-2xl lg:text-3xl text-zinc-900 dark:text-zinc-100"
+    >
+      {t("features.about.title")}
+    </h1>
+    <div>
+      <h2
+        class="font-sans text-base md:text-lg lg:text-xl text-zinc-800 dark:text-zinc-200"
+      >
+        {t("features.about.subtitle")}
+      </h2>
+      <h3
+        class="font-sans text-xs md:text-sm lg:text-base text-zinc-800 dark:text-zinc-200"
+      >
+        {t("features.about.location")}
+      </h3>
+    </div>
+    <p
+      class="font-sans text-sm text-zinc-700 dark:text-zinc-300 whitespace-pre-line"
+    >
+      {t("features.about.description")}
+    </p>
+  </div>
+  <div class="w-full flex justify-center items-center">
+    <Image
+      class="rounded-3xl object-cover object-center h-[250px] w-[350px] lg:w-[250px] xl:w-[350px] shadow-lg transition-all"
+      src="/images/about/profile.jpeg"
+      alt="Profile Picture about Julien Sanchez-Porro"
+      width="350"
+      height="350"
+    />
+  </div>
+</div>
